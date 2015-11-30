@@ -23,6 +23,7 @@
 		90B88F491C0CEF1300B045CD /* Guest.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B88F3F1C0CEF1300B045CD /* Guest.m */; };
 		90B88F4A1C0CEF1300B045CD /* Hotel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B88F411C0CEF1300B045CD /* Hotel+CoreDataProperties.m */; };
 		90B88F4B1C0CEF1300B045CD /* Hotel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B88F431C0CEF1300B045CD /* Hotel.m */; };
+		90B88F4E1C0CF3EC00B045CD /* hotels.json in Resources */ = {isa = PBXBuildFile; fileRef = 90B88F4D1C0CF3EC00B045CD /* hotels.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		90B88F411C0CEF1300B045CD /* Hotel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Hotel+CoreDataProperties.m"; sourceTree = "<group>"; };
 		90B88F421C0CEF1300B045CD /* Hotel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hotel.h; sourceTree = "<group>"; };
 		90B88F431C0CEF1300B045CD /* Hotel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hotel.m; sourceTree = "<group>"; };
+		90B88F4D1C0CF3EC00B045CD /* hotels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hotels.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 		90B88EF81C0CE8CF00B045CD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				90B88F4D1C0CF3EC00B045CD /* hotels.json */,
 				90B88F071C0CE8CF00B045CD /* Assets.xcassets */,
 				90B88F091C0CE8CF00B045CD /* LaunchScreen.storyboard */,
 				90B88F0C1C0CE8CF00B045CD /* Info.plist */,
@@ -316,6 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90B88F4E1C0CF3EC00B045CD /* hotels.json in Resources */,
 				90B88F0B1C0CE8CF00B045CD /* LaunchScreen.storyboard in Resources */,
 				90B88F081C0CE8CF00B045CD /* Assets.xcassets in Resources */,
 			);

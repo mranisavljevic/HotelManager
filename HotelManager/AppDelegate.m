@@ -38,6 +38,46 @@
 }
 
 - (void)bootstrapApp {
+    NSFetchRequest *hotelFetch = [[NSFetchRequest alloc] initWithEntityName:@"Hotel"];
+    NSError *fetchError;
+    NSInteger count = [self.managedObjectContext countForFetchRequest:hotelFetch error:&fetchError];
+    if (count == 0) {
+        NSDictionary *hotels = [NSDictionary new];
+        NSDictionary *rooms = [NSDictionary new];
+        NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"hotels" ofType:@"json"];
+        NSData *jsonData = [NSData dataWithContentsOfFile:jsonPath];
+        
+        NSError *jsonError;
+        NSDictionary *rootObject = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&jsonError];
+        if (jsonError) {
+            NSLog(@"Error serializing JSON object.");
+            return;
+        }
+        hotels = rootObject[@"hotels"];
+        for (NSDictionary *hotel in hotels) {
+            Hotel *newHotel = [NSEntityDescription insertNewObjectForEntityForName:@"Hotel" inManagedObjectContext:self.managedObjectContext];
+            newHotel.name = hotel[@"name"];
+            newHotel.location = hotel[@"location"];
+            newHotel.stars = hotel[@"stars"];
+            
+            rooms = hotel[@"rooms"];
+            for (NSDictionary *room in rooms) {
+                Room *newRoom = [NSEntityDescription insertNewObjectForEntityForName:@"Room" inManagedObjectContext:self.managedObjectContext];
+                newRoom.beds = room[@"beds"];
+                newRoom.number = room[@"number"];
+                newRoom.rate = room[@"rate"];
+                newRoom.hotel = newHotel;
+            }
+        }
+        
+        NSError *saveError;
+        BOOL isSaved = [self.managedObjectContext save:&saveError];
+        if (!isSaved) {
+            NSLog(@"Error! Save incomplete!");
+        } else {
+            NSLog(@"Saved successfully!");
+        }
+    }
     
 }
 

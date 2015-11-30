@@ -9,6 +9,8 @@
 @import UIKit;
 @import CoreData;
 #import "HomeViewController.h"
+#import "Hotel.h"
+#import "Room.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

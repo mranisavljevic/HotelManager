@@ -10,6 +10,7 @@
 //
 
 #import "Room.h"
+#import "Hotel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSNumber *beds;
 @property (nullable, nonatomic, retain) NSNumber *number;
 @property (nullable, nonatomic, retain) NSNumber *rate;
-@property (nullable, nonatomic, retain) NSManagedObject *hotel;
+@property (nullable, nonatomic, retain) Hotel *hotel;
 @property (nullable, nonatomic, retain) Reservation *reservation;
 
 @end
