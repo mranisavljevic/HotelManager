@@ -30,9 +30,9 @@
 
 - (void)setUpRootViewController {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.homeVC = [[HomeViewController alloc] init];
-    [self.homeVC.view setBackgroundColor:[UIColor colorWithWhite:0.698 alpha:1.000]];
+    self.homeVC = [[HomeViewController alloc]initWithNibName:nil bundle:nil];
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.homeVC];
+    [self.homeVC.view setBackgroundColor:[UIColor colorWithWhite:0.698 alpha:1.000]];
     self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
 }

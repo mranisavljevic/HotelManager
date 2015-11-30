@@ -33,7 +33,7 @@
 }
 
 - (void)setUpCustomLayout {
-    float navBarHeight = 44.0;
+    float navBarHeight = CGRectGetHeight(self.navigationController.navigationBar.frame);
     
     UIButton *browseButton = [[UIButton alloc] init];
     UIButton *bookButton = [[UIButton alloc] init];
@@ -46,6 +46,10 @@
     [browseButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [bookButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [lookupButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [browseButton setTitle:@"Browse Hotels" forState:UIControlStateNormal];
+    [bookButton setTitle:@"Book Hotels" forState:UIControlStateNormal];
+    [lookupButton setTitle:@"Look Up Reservation" forState:UIControlStateNormal];
     
     [browseButton setTranslatesAutoresizingMaskIntoConstraints:NO];
     [bookButton setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -85,6 +89,12 @@
     lookupButtonTrailing.active = YES;
     lookupButtonHeight.active = YES;
     
+    [browseButton addTarget:self action:@selector(browseButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)browseButtonPressed {
+    HotelsViewController *hotelsVC = [[HotelsViewController alloc] init];
+    [self.navigationController pushViewController:hotelsVC animated:YES];
 }
 
 @end

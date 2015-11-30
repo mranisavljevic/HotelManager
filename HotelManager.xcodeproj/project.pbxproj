@@ -24,6 +24,7 @@
 		90B88F4A1C0CEF1300B045CD /* Hotel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B88F411C0CEF1300B045CD /* Hotel+CoreDataProperties.m */; };
 		90B88F4B1C0CEF1300B045CD /* Hotel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B88F431C0CEF1300B045CD /* Hotel.m */; };
 		90B88F4E1C0CF3EC00B045CD /* hotels.json in Resources */ = {isa = PBXBuildFile; fileRef = 90B88F4D1C0CF3EC00B045CD /* hotels.json */; };
+		90B88F511C0D0E9300B045CD /* HotelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B88F501C0D0E9300B045CD /* HotelsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		90B88F421C0CEF1300B045CD /* Hotel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hotel.h; sourceTree = "<group>"; };
 		90B88F431C0CEF1300B045CD /* Hotel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hotel.m; sourceTree = "<group>"; };
 		90B88F4D1C0CF3EC00B045CD /* hotels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hotels.json; sourceTree = "<group>"; };
+		90B88F4F1C0D0E9300B045CD /* HotelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelsViewController.h; sourceTree = "<group>"; };
+		90B88F501C0D0E9300B045CD /* HotelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +199,8 @@
 			children = (
 				90B88F301C0CE9C100B045CD /* HomeViewController.h */,
 				90B88F311C0CE9C100B045CD /* HomeViewController.m */,
+				90B88F4F1C0D0E9300B045CD /* HotelsViewController.h */,
+				90B88F501C0D0E9300B045CD /* HotelsViewController.m */,
 			);
 			name = Controller;
 			path = ..;
@@ -347,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90B88F461C0CEF1300B045CD /* Room+CoreDataProperties.m in Sources */,
+				90B88F511C0D0E9300B045CD /* HotelsViewController.m in Sources */,
 				90B88F451C0CEF1300B045CD /* Reservation.m in Sources */,
 				90B88F481C0CEF1300B045CD /* Guest+CoreDataProperties.m in Sources */,
 				90B88F061C0CE8CF00B045CD /* HotelManager.xcdatamodeld in Sources */,
@@ -491,6 +497,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HotelManager/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.creeperspeak.HotelManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -502,6 +509,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HotelManager/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.creeperspeak.HotelManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
