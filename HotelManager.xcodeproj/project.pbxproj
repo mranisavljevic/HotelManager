@@ -1,0 +1,526 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		90B88EFA1C0CE8CF00B045CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B88EF91C0CE8CF00B045CD /* main.m */; };
+		90B88EFD1C0CE8CF00B045CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B88EFC1C0CE8CF00B045CD /* AppDelegate.m */; };
+		90B88F001C0CE8CF00B045CD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B88EFF1C0CE8CF00B045CD /* ViewController.m */; };
+		90B88F061C0CE8CF00B045CD /* HotelManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90B88F041C0CE8CF00B045CD /* HotelManager.xcdatamodeld */; };
+		90B88F081C0CE8CF00B045CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90B88F071C0CE8CF00B045CD /* Assets.xcassets */; };
+		90B88F0B1C0CE8CF00B045CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90B88F091C0CE8CF00B045CD /* LaunchScreen.storyboard */; };
+		90B88F161C0CE8CF00B045CD /* HotelManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B88F151C0CE8CF00B045CD /* HotelManagerTests.m */; };
+		90B88F211C0CE8CF00B045CD /* HotelManagerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B88F201C0CE8CF00B045CD /* HotelManagerUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		90B88F121C0CE8CF00B045CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 90B88EED1C0CE8CF00B045CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 90B88EF41C0CE8CF00B045CD;
+			remoteInfo = HotelManager;
+		};
+		90B88F1D1C0CE8CF00B045CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 90B88EED1C0CE8CF00B045CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 90B88EF41C0CE8CF00B045CD;
+			remoteInfo = HotelManager;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		90B88EF51C0CE8CF00B045CD /* HotelManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotelManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		90B88EF91C0CE8CF00B045CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		90B88EFB1C0CE8CF00B045CD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		90B88EFC1C0CE8CF00B045CD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		90B88EFE1C0CE8CF00B045CD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		90B88EFF1C0CE8CF00B045CD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		90B88F051C0CE8CF00B045CD /* HotelManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HotelManager.xcdatamodel; sourceTree = "<group>"; };
+		90B88F071C0CE8CF00B045CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		90B88F0A1C0CE8CF00B045CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		90B88F0C1C0CE8CF00B045CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90B88F111C0CE8CF00B045CD /* HotelManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HotelManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		90B88F151C0CE8CF00B045CD /* HotelManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotelManagerTests.m; sourceTree = "<group>"; };
+		90B88F171C0CE8CF00B045CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90B88F1C1C0CE8CF00B045CD /* HotelManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HotelManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		90B88F201C0CE8CF00B045CD /* HotelManagerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotelManagerUITests.m; sourceTree = "<group>"; };
+		90B88F221C0CE8CF00B045CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		90B88EF21C0CE8CF00B045CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90B88F0E1C0CE8CF00B045CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90B88F191C0CE8CF00B045CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		90B88EEC1C0CE8CF00B045CD = {
+			isa = PBXGroup;
+			children = (
+				90B88EF71C0CE8CF00B045CD /* HotelManager */,
+				90B88F141C0CE8CF00B045CD /* HotelManagerTests */,
+				90B88F1F1C0CE8CF00B045CD /* HotelManagerUITests */,
+				90B88EF61C0CE8CF00B045CD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		90B88EF61C0CE8CF00B045CD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				90B88EF51C0CE8CF00B045CD /* HotelManager.app */,
+				90B88F111C0CE8CF00B045CD /* HotelManagerTests.xctest */,
+				90B88F1C1C0CE8CF00B045CD /* HotelManagerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		90B88EF71C0CE8CF00B045CD /* HotelManager */ = {
+			isa = PBXGroup;
+			children = (
+				90B88EFB1C0CE8CF00B045CD /* AppDelegate.h */,
+				90B88EFC1C0CE8CF00B045CD /* AppDelegate.m */,
+				90B88EFE1C0CE8CF00B045CD /* ViewController.h */,
+				90B88EFF1C0CE8CF00B045CD /* ViewController.m */,
+				90B88F071C0CE8CF00B045CD /* Assets.xcassets */,
+				90B88F091C0CE8CF00B045CD /* LaunchScreen.storyboard */,
+				90B88F0C1C0CE8CF00B045CD /* Info.plist */,
+				90B88F041C0CE8CF00B045CD /* HotelManager.xcdatamodeld */,
+				90B88EF81C0CE8CF00B045CD /* Supporting Files */,
+			);
+			path = HotelManager;
+			sourceTree = "<group>";
+		};
+		90B88EF81C0CE8CF00B045CD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				90B88EF91C0CE8CF00B045CD /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		90B88F141C0CE8CF00B045CD /* HotelManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				90B88F151C0CE8CF00B045CD /* HotelManagerTests.m */,
+				90B88F171C0CE8CF00B045CD /* Info.plist */,
+			);
+			path = HotelManagerTests;
+			sourceTree = "<group>";
+		};
+		90B88F1F1C0CE8CF00B045CD /* HotelManagerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				90B88F201C0CE8CF00B045CD /* HotelManagerUITests.m */,
+				90B88F221C0CE8CF00B045CD /* Info.plist */,
+			);
+			path = HotelManagerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		90B88EF41C0CE8CF00B045CD /* HotelManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90B88F251C0CE8CF00B045CD /* Build configuration list for PBXNativeTarget "HotelManager" */;
+			buildPhases = (
+				90B88EF11C0CE8CF00B045CD /* Sources */,
+				90B88EF21C0CE8CF00B045CD /* Frameworks */,
+				90B88EF31C0CE8CF00B045CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HotelManager;
+			productName = HotelManager;
+			productReference = 90B88EF51C0CE8CF00B045CD /* HotelManager.app */;
+			productType = "com.apple.product-type.application";
+		};
+		90B88F101C0CE8CF00B045CD /* HotelManagerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90B88F281C0CE8CF00B045CD /* Build configuration list for PBXNativeTarget "HotelManagerTests" */;
+			buildPhases = (
+				90B88F0D1C0CE8CF00B045CD /* Sources */,
+				90B88F0E1C0CE8CF00B045CD /* Frameworks */,
+				90B88F0F1C0CE8CF00B045CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				90B88F131C0CE8CF00B045CD /* PBXTargetDependency */,
+			);
+			name = HotelManagerTests;
+			productName = HotelManagerTests;
+			productReference = 90B88F111C0CE8CF00B045CD /* HotelManagerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		90B88F1B1C0CE8CF00B045CD /* HotelManagerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90B88F2B1C0CE8CF00B045CD /* Build configuration list for PBXNativeTarget "HotelManagerUITests" */;
+			buildPhases = (
+				90B88F181C0CE8CF00B045CD /* Sources */,
+				90B88F191C0CE8CF00B045CD /* Frameworks */,
+				90B88F1A1C0CE8CF00B045CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				90B88F1E1C0CE8CF00B045CD /* PBXTargetDependency */,
+			);
+			name = HotelManagerUITests;
+			productName = HotelManagerUITests;
+			productReference = 90B88F1C1C0CE8CF00B045CD /* HotelManagerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		90B88EED1C0CE8CF00B045CD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = creeperspeak;
+				TargetAttributes = {
+					90B88EF41C0CE8CF00B045CD = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+					90B88F101C0CE8CF00B045CD = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = 90B88EF41C0CE8CF00B045CD;
+					};
+					90B88F1B1C0CE8CF00B045CD = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = 90B88EF41C0CE8CF00B045CD;
+					};
+				};
+			};
+			buildConfigurationList = 90B88EF01C0CE8CF00B045CD /* Build configuration list for PBXProject "HotelManager" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 90B88EEC1C0CE8CF00B045CD;
+			productRefGroup = 90B88EF61C0CE8CF00B045CD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				90B88EF41C0CE8CF00B045CD /* HotelManager */,
+				90B88F101C0CE8CF00B045CD /* HotelManagerTests */,
+				90B88F1B1C0CE8CF00B045CD /* HotelManagerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		90B88EF31C0CE8CF00B045CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90B88F0B1C0CE8CF00B045CD /* LaunchScreen.storyboard in Resources */,
+				90B88F081C0CE8CF00B045CD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90B88F0F1C0CE8CF00B045CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90B88F1A1C0CE8CF00B045CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		90B88EF11C0CE8CF00B045CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90B88F061C0CE8CF00B045CD /* HotelManager.xcdatamodeld in Sources */,
+				90B88F001C0CE8CF00B045CD /* ViewController.m in Sources */,
+				90B88EFD1C0CE8CF00B045CD /* AppDelegate.m in Sources */,
+				90B88EFA1C0CE8CF00B045CD /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90B88F0D1C0CE8CF00B045CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90B88F161C0CE8CF00B045CD /* HotelManagerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90B88F181C0CE8CF00B045CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90B88F211C0CE8CF00B045CD /* HotelManagerUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		90B88F131C0CE8CF00B045CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 90B88EF41C0CE8CF00B045CD /* HotelManager */;
+			targetProxy = 90B88F121C0CE8CF00B045CD /* PBXContainerItemProxy */;
+		};
+		90B88F1E1C0CE8CF00B045CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 90B88EF41C0CE8CF00B045CD /* HotelManager */;
+			targetProxy = 90B88F1D1C0CE8CF00B045CD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		90B88F091C0CE8CF00B045CD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				90B88F0A1C0CE8CF00B045CD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		90B88F231C0CE8CF00B045CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		90B88F241C0CE8CF00B045CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		90B88F261C0CE8CF00B045CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HotelManager/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.creeperspeak.HotelManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		90B88F271C0CE8CF00B045CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HotelManager/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.creeperspeak.HotelManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		90B88F291C0CE8CF00B045CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = HotelManagerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.creeperspeak.HotelManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HotelManager.app/HotelManager";
+			};
+			name = Debug;
+		};
+		90B88F2A1C0CE8CF00B045CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = HotelManagerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.creeperspeak.HotelManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HotelManager.app/HotelManager";
+			};
+			name = Release;
+		};
+		90B88F2C1C0CE8CF00B045CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = HotelManagerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.creeperspeak.HotelManagerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = HotelManager;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		90B88F2D1C0CE8CF00B045CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = HotelManagerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.creeperspeak.HotelManagerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = HotelManager;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		90B88EF01C0CE8CF00B045CD /* Build configuration list for PBXProject "HotelManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90B88F231C0CE8CF00B045CD /* Debug */,
+				90B88F241C0CE8CF00B045CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		90B88F251C0CE8CF00B045CD /* Build configuration list for PBXNativeTarget "HotelManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90B88F261C0CE8CF00B045CD /* Debug */,
+				90B88F271C0CE8CF00B045CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		90B88F281C0CE8CF00B045CD /* Build configuration list for PBXNativeTarget "HotelManagerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90B88F291C0CE8CF00B045CD /* Debug */,
+				90B88F2A1C0CE8CF00B045CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		90B88F2B1C0CE8CF00B045CD /* Build configuration list for PBXNativeTarget "HotelManagerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90B88F2C1C0CE8CF00B045CD /* Debug */,
+				90B88F2D1C0CE8CF00B045CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		90B88F041C0CE8CF00B045CD /* HotelManager.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				90B88F051C0CE8CF00B045CD /* HotelManager.xcdatamodel */,
+			);
+			currentVersion = 90B88F051C0CE8CF00B045CD /* HotelManager.xcdatamodel */;
+			path = HotelManager.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 90B88EED1C0CE8CF00B045CD /* Project object */;
+}
