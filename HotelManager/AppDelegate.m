@@ -78,7 +78,6 @@
             NSLog(@"Saved successfully!");
         }
     }
-    
 }
 
 #pragma mark - Core Data stack
