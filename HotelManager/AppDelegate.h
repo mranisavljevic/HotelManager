@@ -6,8 +6,9 @@
 //  Copyright © 2015 creeperspeak. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <CoreData/CoreData.h>
+@import UIKit;
+@import CoreData;
+#import "HomeViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
