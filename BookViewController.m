@@ -121,6 +121,11 @@
         }];
         [alertController addAction:okAction];
         [self presentViewController:alertController animated:YES completion:nil];
+    } else {
+        AvailabilityViewController *availabilityVC = [[AvailabilityViewController alloc] init];
+        availabilityVC.startDate = startDate;
+        availabilityVC.endDate = endDate;
+        [self.navigationController pushViewController:availabilityVC animated:YES];
     }
 }
 
