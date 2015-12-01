@@ -126,8 +126,10 @@
     cell.backgroundColor = [UIColor colorWithWhite:0.937 alpha:1.000];
     cell.layer.cornerRadius = 5.0;
     [cell.textLabel setFont:[UIFont fontWithName:@"Papyrus" size:20]];
-    cell.textLabel.text = @"test";
+    Room *currentRoom = self.datasource[indexPath.section][indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"Room %@ - %@ beds - $%@ per night.", currentRoom.number, currentRoom.beds, currentRoom.rate];
     return cell;
 }
+
 
 @end
