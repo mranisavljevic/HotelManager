@@ -112,7 +112,16 @@
 }
 
 - (void)doneButtonPressed:(UIBarButtonItem *)sender {
-    
+    NSDate *startDate = self.startDatePicker.date;
+    NSDate *endDate = self.endDatePicker.date;
+    if (startDate >= endDate) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"What!?!" message:@"You can't book a stay for negative days!" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self.endDatePicker setDate:[NSDate dateWithTimeInterval:86400 sinceDate:startDate] animated:YES];
+        }];
+        [alertController addAction:okAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
 }
 
 @end
