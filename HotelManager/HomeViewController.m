@@ -31,8 +31,6 @@
 - (void)setUpView {
     NSDictionary *titleAttributes = @{NSFontAttributeName : [UIFont fontWithName:@"Papyrus" size:20]};
     self.navigationController.navigationBar.titleTextAttributes = titleAttributes;
-    NSLog(@"%@", self.navigationController.navigationBar.titleTextAttributes);
-    
     [self.navigationItem setTitle:@"Hotel Manager"];
 }
 
@@ -98,11 +96,17 @@
     lookupButtonHeight.active = YES;
     
     [browseButton addTarget:self action:@selector(browseButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [bookButton addTarget:self action:@selector(bookButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)browseButtonPressed {
     HotelsViewController *hotelsVC = [[HotelsViewController alloc] init];
     [self.navigationController pushViewController:hotelsVC animated:YES];
+}
+
+- (void)bookButtonPressed {
+    BookViewController *bookVC = [[BookViewController alloc] init];
+    [self.navigationController pushViewController:bookVC animated:YES];
 }
 
 @end

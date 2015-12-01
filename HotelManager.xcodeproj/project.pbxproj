@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9019E8FF1C0E3641005A6BE6 /* BookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9019E8FE1C0E3641005A6BE6 /* BookViewController.m */; };
 		90B88EFA1C0CE8CF00B045CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B88EF91C0CE8CF00B045CD /* main.m */; };
 		90B88EFD1C0CE8CF00B045CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B88EFC1C0CE8CF00B045CD /* AppDelegate.m */; };
 		90B88F061C0CE8CF00B045CD /* HotelManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90B88F041C0CE8CF00B045CD /* HotelManager.xcdatamodeld */; };
@@ -48,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9019E8FD1C0E3641005A6BE6 /* BookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookViewController.h; sourceTree = "<group>"; };
+		9019E8FE1C0E3641005A6BE6 /* BookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookViewController.m; sourceTree = "<group>"; };
 		90B88EF51C0CE8CF00B045CD /* HotelManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotelManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90B88EF91C0CE8CF00B045CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		90B88EFB1C0CE8CF00B045CD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -212,6 +215,8 @@
 				90B88F501C0D0E9300B045CD /* HotelsViewController.m */,
 				90B88F561C0D1D7300B045CD /* RoomsViewController.h */,
 				90B88F571C0D1D7300B045CD /* RoomsViewController.m */,
+				9019E8FD1C0E3641005A6BE6 /* BookViewController.h */,
+				9019E8FE1C0E3641005A6BE6 /* BookViewController.m */,
 			);
 			name = Controller;
 			path = ..;
@@ -364,6 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9019E8FF1C0E3641005A6BE6 /* BookViewController.m in Sources */,
 				90B88F461C0CEF1300B045CD /* Room+CoreDataProperties.m in Sources */,
 				90B88F511C0D0E9300B045CD /* HotelsViewController.m in Sources */,
 				90B88F451C0CEF1300B045CD /* Reservation.m in Sources */,

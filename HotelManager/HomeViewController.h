@@ -8,6 +8,7 @@
 
 @import UIKit;
 #import "HotelsViewController.h"
+#import "BookViewController.h"
 
 @interface HomeViewController : UIViewController
 
