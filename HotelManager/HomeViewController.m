@@ -29,6 +29,10 @@
 }
 
 - (void)setUpView {
+    NSDictionary *titleAttributes = @{NSFontAttributeName : [UIFont fontWithName:@"Papyrus" size:20]};
+    self.navigationController.navigationBar.titleTextAttributes = titleAttributes;
+    NSLog(@"%@", self.navigationController.navigationBar.titleTextAttributes);
+    
     [self.navigationItem setTitle:@"Hotel Manager"];
 }
 
@@ -50,6 +54,10 @@
     [browseButton setTitle:@"Browse Hotels" forState:UIControlStateNormal];
     [bookButton setTitle:@"Book Hotels" forState:UIControlStateNormal];
     [lookupButton setTitle:@"Look Up Reservation" forState:UIControlStateNormal];
+    
+    [[browseButton titleLabel] setFont:[UIFont fontWithName:@"Papyrus" size:24]];
+    [[bookButton titleLabel] setFont:[UIFont fontWithName:@"Papyrus" size:24]];
+    [[lookupButton titleLabel] setFont:[UIFont fontWithName:@"Papyrus" size:24]];
     
     [browseButton setTranslatesAutoresizingMaskIntoConstraints:NO];
     [bookButton setTranslatesAutoresizingMaskIntoConstraints:NO];

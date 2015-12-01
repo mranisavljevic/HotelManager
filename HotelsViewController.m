@@ -50,6 +50,9 @@
 
 - (void)setUpHotelsViewController {
     self.datasource = [self datasource];
+    NSDictionary *titleAttributes = @{NSFontAttributeName : [UIFont fontWithName:@"Papyrus" size:20]};
+    self.navigationController.navigationBar.titleTextAttributes = titleAttributes;
+    [self.navigationItem setTitle:@"Hotels"];
 }
 
 - (void)setUpTableView {
@@ -84,6 +87,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     Hotel *hotel = self.datasource[indexPath.row];
+    cell.backgroundColor = [UIColor colorWithWhite:0.937 alpha:1.000];
+    cell.layer.cornerRadius = 5.0;
+    [cell.textLabel setFont:[UIFont fontWithName:@"Papyrus" size:20]];
     cell.textLabel.text = hotel.name;
     return cell;
 }

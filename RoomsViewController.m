@@ -19,6 +19,9 @@
 - (void)loadView {
     [super loadView];
     [self.view setBackgroundColor:[UIColor colorWithRed:0.333 green:0.329 blue:0.329 alpha:1.000]];
+    NSDictionary *titleAttributes = @{NSFontAttributeName : [UIFont fontWithName:@"Papyrus" size:20]};
+    self.navigationController.navigationBar.titleTextAttributes = titleAttributes;
+    [self.navigationItem setTitle:@"Rooms"];
     [self setUpTableView];
 }
 
@@ -63,7 +66,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     Room *room = [self.hotel.rooms allObjects][indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"Room: %@ - %@ beds - $%@ per night.", room.number, room.beds, room.rate];
+    [cell.textLabel setFont:[UIFont fontWithName:@"Papyrus" size:20]];
+    cell.textLabel.text = [NSString stringWithFormat:@"Room: %@ - %@ beds - $%.2f per night.", room.number, room.beds, room.rate.floatValue];
+    cell.backgroundColor = [UIColor colorWithWhite:0.937 alpha:1.000];
+    cell.layer.cornerRadius = 5.0;
     return cell;
 }
 
