@@ -1,55 +1,33 @@
 //
-//  HotelsViewController.m
+//  RoomsViewController.m
 //  HotelManager
 //
 //  Created by Miles Ranisavljevic on 11/30/15.
 //  Copyright © 2015 creeperspeak. All rights reserved.
 //
 
-#import "HotelsViewController.h"
+#import "RoomsViewController.h"
 
-@interface HotelsViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface RoomsViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (strong, nonatomic) NSArray *datasource;
 @property (strong, nonatomic) UITableView *tableView;
 
 @end
 
-@implementation HotelsViewController
+@implementation RoomsViewController
 
 - (void)loadView {
     [super loadView];
-    [self.view setBackgroundColor:[UIColor colorWithWhite:0.698 alpha:1.000]];
-    [self setUpHotelsViewController];
+    [self.view setBackgroundColor:[UIColor colorWithRed:0.333 green:0.329 blue:0.329 alpha:1.000]];
     [self setUpTableView];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (NSArray*)datasource {
-    if (!_datasource) {
-        AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-        NSManagedObjectContext *context = delegate.managedObjectContext;
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Hotel"];
-        NSError *fetchError;
-        _datasource = [context executeFetchRequest:request error:&fetchError];
-        if (fetchError) {
-            NSLog(@"%@", fetchError.userInfo);
-        }
-    }
-    return _datasource;
-}
-
-- (void)setUpHotelsViewController {
-    self.datasource = [self datasource];
 }
 
 - (void)setUpTableView {
@@ -70,12 +48,13 @@
     tableViewLeading.active = YES;
     tableViewTrailing.active = YES;
     tableViewBottom.active = YES;
+    
 }
 
-#pragma mark - UITableViewDelegate, UITableViewDatasource
+#pragma mark - UITableViewDataSource, UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.datasource.count;
+    return self.hotel.rooms.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -83,8 +62,8 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-    Hotel *hotel = self.datasource[indexPath.row];
-    cell.textLabel.text = hotel.name;
+    Room *room = [self.hotel.rooms allObjects][indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"Room: %@ - %@ beds - $%@ per night.", room.number, room.beds, room.rate];
     return cell;
 }
 
@@ -93,19 +72,13 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIImage *hotelImage = [UIImage imageNamed:@"badHotel.jpg"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:hotelImage];
+    UIImage *roomImage = [UIImage imageNamed:@"hotelRoom.jpg"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:roomImage];
     imageView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 150);
     imageView.contentMode = UIViewContentModeScaleAspectFill;
     [imageView setClipsToBounds:YES];
     return imageView;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    RoomsViewController *roomsVC = [[RoomsViewController alloc] init];
-    Hotel *hotel = self.datasource[indexPath.row];
-    roomsVC.hotel = hotel;
-    [self.navigationController pushViewController:roomsVC animated:YES];
+    
 }
 
 @end

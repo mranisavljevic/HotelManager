@@ -53,7 +53,7 @@
             NSLog(@"Error serializing JSON object.");
             return;
         }
-        hotels = rootObject[@"hotels"];
+        hotels = rootObject[@"Hotels"];
         for (NSDictionary *hotel in hotels) {
             Hotel *newHotel = [NSEntityDescription insertNewObjectForEntityForName:@"Hotel" inManagedObjectContext:self.managedObjectContext];
             newHotel.name = hotel[@"name"];

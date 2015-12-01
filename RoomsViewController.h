@@ -1,5 +1,5 @@
 //
-//  HotelsViewController.h
+//  RoomsViewController.h
 //  HotelManager
 //
 //  Created by Miles Ranisavljevic on 11/30/15.
@@ -7,9 +7,12 @@
 //
 
 @import UIKit;
+#import "Hotel.h"
+#import "Room.h"
 #import "AppDelegate.h"
-#import "RoomsViewController.h"
 
-@interface HotelsViewController : UIViewController
+@interface RoomsViewController : UIViewController
+
+@property (strong, nonatomic) Hotel *hotel;
 
 @end

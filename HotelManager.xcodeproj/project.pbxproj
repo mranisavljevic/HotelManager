@@ -25,6 +25,9 @@
 		90B88F4B1C0CEF1300B045CD /* Hotel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B88F431C0CEF1300B045CD /* Hotel.m */; };
 		90B88F4E1C0CF3EC00B045CD /* hotels.json in Resources */ = {isa = PBXBuildFile; fileRef = 90B88F4D1C0CF3EC00B045CD /* hotels.json */; };
 		90B88F511C0D0E9300B045CD /* HotelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B88F501C0D0E9300B045CD /* HotelsViewController.m */; };
+		90B88F531C0D1B7D00B045CD /* badHotel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90B88F521C0D1B7D00B045CD /* badHotel.jpg */; };
+		90B88F551C0D1B8A00B045CD /* hotelRoom.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90B88F541C0D1B8A00B045CD /* hotelRoom.jpg */; };
+		90B88F581C0D1D7300B045CD /* RoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B88F571C0D1D7300B045CD /* RoomsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,10 @@
 		90B88F4D1C0CF3EC00B045CD /* hotels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hotels.json; sourceTree = "<group>"; };
 		90B88F4F1C0D0E9300B045CD /* HotelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelsViewController.h; sourceTree = "<group>"; };
 		90B88F501C0D0E9300B045CD /* HotelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelsViewController.m; sourceTree = "<group>"; };
+		90B88F521C0D1B7D00B045CD /* badHotel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = badHotel.jpg; sourceTree = "<group>"; };
+		90B88F541C0D1B8A00B045CD /* hotelRoom.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hotelRoom.jpg; sourceTree = "<group>"; };
+		90B88F561C0D1D7300B045CD /* RoomsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomsViewController.h; sourceTree = "<group>"; };
+		90B88F571C0D1D7300B045CD /* RoomsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +153,8 @@
 				90B88F091C0CE8CF00B045CD /* LaunchScreen.storyboard */,
 				90B88F0C1C0CE8CF00B045CD /* Info.plist */,
 				90B88EF91C0CE8CF00B045CD /* main.m */,
+				90B88F541C0D1B8A00B045CD /* hotelRoom.jpg */,
+				90B88F521C0D1B7D00B045CD /* badHotel.jpg */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -201,6 +210,8 @@
 				90B88F311C0CE9C100B045CD /* HomeViewController.m */,
 				90B88F4F1C0D0E9300B045CD /* HotelsViewController.h */,
 				90B88F501C0D0E9300B045CD /* HotelsViewController.m */,
+				90B88F561C0D1D7300B045CD /* RoomsViewController.h */,
+				90B88F571C0D1D7300B045CD /* RoomsViewController.m */,
 			);
 			name = Controller;
 			path = ..;
@@ -324,8 +335,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90B88F551C0D1B8A00B045CD /* hotelRoom.jpg in Resources */,
 				90B88F4E1C0CF3EC00B045CD /* hotels.json in Resources */,
 				90B88F0B1C0CE8CF00B045CD /* LaunchScreen.storyboard in Resources */,
+				90B88F531C0D1B7D00B045CD /* badHotel.jpg in Resources */,
 				90B88F081C0CE8CF00B045CD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +375,7 @@
 				90B88EFA1C0CE8CF00B045CD /* main.m in Sources */,
 				90B88F491C0CEF1300B045CD /* Guest.m in Sources */,
 				90B88F441C0CEF1300B045CD /* Reservation+CoreDataProperties.m in Sources */,
+				90B88F581C0D1D7300B045CD /* RoomsViewController.m in Sources */,
 				90B88F471C0CEF1300B045CD /* Room.m in Sources */,
 				90B88F321C0CE9C100B045CD /* HomeViewController.m in Sources */,
 			);
