@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9019E8FF1C0E3641005A6BE6 /* BookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9019E8FE1C0E3641005A6BE6 /* BookViewController.m */; };
 		9019E9041C0E48EC005A6BE6 /* AvailabilityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9019E9031C0E48EC005A6BE6 /* AvailabilityViewController.m */; };
+		9019E9071C0E614D005A6BE6 /* FinalBookingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9019E9061C0E614D005A6BE6 /* FinalBookingViewController.m */; };
 		90B88EFA1C0CE8CF00B045CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B88EF91C0CE8CF00B045CD /* main.m */; };
 		90B88EFD1C0CE8CF00B045CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B88EFC1C0CE8CF00B045CD /* AppDelegate.m */; };
 		90B88F061C0CE8CF00B045CD /* HotelManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90B88F041C0CE8CF00B045CD /* HotelManager.xcdatamodeld */; };
@@ -54,6 +55,8 @@
 		9019E8FE1C0E3641005A6BE6 /* BookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookViewController.m; sourceTree = "<group>"; };
 		9019E9021C0E48EC005A6BE6 /* AvailabilityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvailabilityViewController.h; sourceTree = "<group>"; };
 		9019E9031C0E48EC005A6BE6 /* AvailabilityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvailabilityViewController.m; sourceTree = "<group>"; };
+		9019E9051C0E614D005A6BE6 /* FinalBookingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinalBookingViewController.h; sourceTree = "<group>"; };
+		9019E9061C0E614D005A6BE6 /* FinalBookingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinalBookingViewController.m; sourceTree = "<group>"; };
 		90B88EF51C0CE8CF00B045CD /* HotelManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotelManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90B88EF91C0CE8CF00B045CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		90B88EFB1C0CE8CF00B045CD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -138,6 +141,8 @@
 				9019E8FE1C0E3641005A6BE6 /* BookViewController.m */,
 				9019E9021C0E48EC005A6BE6 /* AvailabilityViewController.h */,
 				9019E9031C0E48EC005A6BE6 /* AvailabilityViewController.m */,
+				9019E9051C0E614D005A6BE6 /* FinalBookingViewController.h */,
+				9019E9061C0E614D005A6BE6 /* FinalBookingViewController.m */,
 			);
 			name = Book;
 			sourceTree = "<group>";
@@ -403,6 +408,7 @@
 				90B88EFA1C0CE8CF00B045CD /* main.m in Sources */,
 				90B88F491C0CEF1300B045CD /* Guest.m in Sources */,
 				90B88F441C0CEF1300B045CD /* Reservation+CoreDataProperties.m in Sources */,
+				9019E9071C0E614D005A6BE6 /* FinalBookingViewController.m in Sources */,
 				90B88F581C0D1D7300B045CD /* RoomsViewController.m in Sources */,
 				90B88F471C0CEF1300B045CD /* Room.m in Sources */,
 				90B88F321C0CE9C100B045CD /* HomeViewController.m in Sources */,

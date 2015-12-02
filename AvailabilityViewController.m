@@ -127,9 +127,17 @@
     cell.layer.cornerRadius = 5.0;
     [cell.textLabel setFont:[UIFont fontWithName:@"Papyrus" size:20]];
     Room *currentRoom = self.datasource[indexPath.section][indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"Room %@ - %@ beds - $%@ per night.", currentRoom.number, currentRoom.beds, currentRoom.rate];
+    cell.textLabel.text = [NSString stringWithFormat:@"Room %@ - %@ beds - $%.2f per night.", currentRoom.number, currentRoom.beds, currentRoom.rate.floatValue];
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Room *selectedRoom = self.datasource[indexPath.section][indexPath.row];
+    FinalBookingViewController *finalBookingVC = [[FinalBookingViewController alloc] init];
+    finalBookingVC.startDate = self.startDate;
+    finalBookingVC.endDate = self.endDate;
+    finalBookingVC.room = selectedRoom;
+    [self.navigationController pushViewController:finalBookingVC animated:YES];
+}
 
 @end

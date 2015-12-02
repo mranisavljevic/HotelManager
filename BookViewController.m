@@ -33,7 +33,7 @@
 }
 
 - (void)setUpBookViewController {
-    [self.navigationItem setTitle:@"Book a Room"];
+    [self.navigationItem setTitle:@"Book Dates"];
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonPressed:)];
     self.navigationItem.rightBarButtonItem = doneButton;
 }

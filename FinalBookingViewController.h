@@ -1,5 +1,5 @@
 //
-//  AvailabilityViewController.h
+//  FinalBookingViewController.h
 //  HotelManager
 //
 //  Created by Miles Ranisavljevic on 12/1/15.
@@ -7,15 +7,12 @@
 //
 
 @import UIKit;
-#import "AppDelegate.h"
-#import "Reservation.h"
 #import "Room.h"
-#import "Hotel.h"
-#import "FinalBookingViewController.h"
 
-@interface AvailabilityViewController : UIViewController
+@interface FinalBookingViewController : UIViewController
 
 @property (strong, nonatomic) NSDate *startDate;
 @property (strong, nonatomic) NSDate *endDate;
+@property (strong, nonatomic) Room *room;
 
 @end
