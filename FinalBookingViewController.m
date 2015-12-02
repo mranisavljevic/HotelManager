@@ -105,10 +105,16 @@
     self.firstNameTextField.font = [UIFont fontWithName:@"Papyrus" size:20];
     self.lastNameTextField.font =[UIFont fontWithName:@"Papyrus" size:20];
     
-    self.firstNameTextField.placeholder = @"First Name";
-    self.lastNameTextField.placeholder = @"Last Name";
+    self.firstNameTextField.layer.cornerRadius = 5.0;
+    self.lastNameTextField.layer.cornerRadius = 5.0;
     
-    NSLayoutConstraint *firstNameTop = [NSLayoutConstraint constraintWithItem:self.firstNameTextField attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:navBarHeight + 20];
+    self.firstNameTextField.placeholder = @" First Name";
+    self.lastNameTextField.placeholder = @" Last Name";
+    
+    self.firstNameTextField.backgroundColor = [UIColor colorWithWhite:0.875 alpha:1.000];
+    self.lastNameTextField.backgroundColor = [UIColor colorWithWhite:0.875 alpha:1.000];
+    
+    NSLayoutConstraint *firstNameTop = [NSLayoutConstraint constraintWithItem:self.firstNameTextField attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:navBarHeight + 40.0];
     NSLayoutConstraint *firstNameLeading = [NSLayoutConstraint constraintWithItem:self.firstNameTextField attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeadingMargin multiplier:1.0 constant:0.0];
     NSLayoutConstraint *firstNameTrailing = [NSLayoutConstraint constraintWithItem:self.firstNameTextField attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailingMargin multiplier:1.0 constant:0.0];
     
@@ -126,6 +132,8 @@
     lastNameTop.active = YES;
     lastNameTrailing.active = YES;
     lastNameLeading.active = YES;
+    
+    [self.firstNameTextField becomeFirstResponder];
 }
 
 - (void)saveButtonSelected:(UIBarButtonItem *)sender {
