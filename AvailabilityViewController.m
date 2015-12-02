@@ -20,15 +20,14 @@
 
 - (NSArray *)datasource {
     if (!_datasource) {
-        AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
         NSFetchRequest *existingReservationsRequest = [[NSFetchRequest alloc] initWithEntityName:@"Reservation"];
         existingReservationsRequest.predicate = [NSPredicate predicateWithFormat:@"startDate <= %@ AND endDate >= %@", self.endDate, self.startDate];
         NSError *fetchError;
-        NSArray *existingReservations = [delegate.managedObjectContext executeFetchRequest:existingReservationsRequest error:&fetchError];
+        NSArray *existingReservations = [[NSManagedObjectContext hotelManagerContext] executeFetchRequest:existingReservationsRequest error:&fetchError];
         
         NSFetchRequest *allRoomsRequest = [[NSFetchRequest alloc] initWithEntityName:@"Room"];
         NSError *allRoomFetchError;
-        NSArray *allRooms = [delegate.managedObjectContext executeFetchRequest:allRoomsRequest error:&allRoomFetchError];
+        NSArray *allRooms = [[NSManagedObjectContext hotelManagerContext] executeFetchRequest:allRoomsRequest error:&allRoomFetchError];
         
         NSMutableArray *unavailableRooms = [NSMutableArray new];
         
@@ -44,7 +43,7 @@
         
         NSFetchRequest *hotelRequest = [[NSFetchRequest alloc] initWithEntityName:@"Hotel"];
         NSError *hotelError;
-        NSArray *hotels = [delegate.managedObjectContext executeFetchRequest:hotelRequest error:&hotelError];
+        NSArray *hotels = [[NSManagedObjectContext hotelManagerContext] executeFetchRequest:hotelRequest error:&hotelError];
         self.hotels = hotels;
         NSMutableArray *groupedAvailableRooms = [NSMutableArray new];
         for (Hotel *hotel in self.hotels) {

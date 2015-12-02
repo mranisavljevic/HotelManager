@@ -137,9 +137,7 @@
 }
 
 - (void)saveButtonSelected:(UIBarButtonItem *)sender {
-    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = [delegate managedObjectContext];
-    Reservation *reservation = [NSEntityDescription entityForName:@"Reservation" inManagedObjectContext:context];
+    Reservation *reservation = [NSEntityDescription entityForName:@"Reservation" inManagedObjectContext:[NSManagedObjectContext hotelManagerContext]];
     reservation.startDate = self.startDate;
     reservation.endDate = self.endDate;
     reservation.room = self.room;

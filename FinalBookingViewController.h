@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "Room.h"
 #import "Reservation.h"
+#import "NSObject+NSManagedObjectContext.h"
 
 @interface FinalBookingViewController : UIViewController
 
