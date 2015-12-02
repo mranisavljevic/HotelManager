@@ -2,15 +2,14 @@
 //  Room.h
 //  HotelManager
 //
-//  Created by Miles Ranisavljevic on 11/30/15.
+//  Created by Miles Ranisavljevic on 12/1/15.
 //  Copyright © 2015 creeperspeak. All rights reserved.
 //
 
-@import Foundation;
-@import CoreData;
-#import "NSObject+NSManagedObjectContext.h"
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@class Reservation;
+@class Hotel, Reservation;
 
 NS_ASSUME_NONNULL_BEGIN
 

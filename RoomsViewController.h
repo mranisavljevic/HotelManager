@@ -8,6 +8,7 @@
 
 @import UIKit;
 #import "Room.h"
+#import "Hotel.h"
 #import "AppDelegate.h"
 
 @interface RoomsViewController : UIViewController
