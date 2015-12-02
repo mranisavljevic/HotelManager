@@ -111,7 +111,8 @@
 }
 
 - (void)lookupButtonPressed {
-    
+    LookupViewController *lookupVC = [[LookupViewController alloc] init];
+    [self.navigationController pushViewController:lookupVC animated:YES];
 }
 
 @end
