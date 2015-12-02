@@ -137,7 +137,15 @@
 }
 
 - (void)saveButtonSelected:(UIBarButtonItem *)sender {
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [delegate managedObjectContext];
+    Reservation *reservation = [NSEntityDescription entityForName:@"Reservation" inManagedObjectContext:context];
+    reservation.startDate = self.startDate;
+    reservation.endDate = self.endDate;
+    reservation.room = self.room;
+    self.room.reservation = reservation;
     
+    ///Working on saving - need to create custom initializers for CD models.
 }
 
 @end

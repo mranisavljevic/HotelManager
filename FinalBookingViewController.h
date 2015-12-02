@@ -7,7 +7,9 @@
 //
 
 @import UIKit;
+#import "AppDelegate.h"
 #import "Room.h"
+#import "Reservation.h"
 
 @interface FinalBookingViewController : UIViewController
 
