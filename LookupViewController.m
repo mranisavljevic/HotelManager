@@ -8,12 +8,11 @@
 
 #import "LookupViewController.h"
 
-@interface LookupViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface LookupViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) UISearchBar *searchBar;
 @property (strong, nonatomic) NSFetchedResultsController *resultsController;
-@property (strong, nonatomic) NSArray *datasource;
 
 @end
 
@@ -24,7 +23,6 @@
     [self.view setBackgroundColor:[UIColor colorWithWhite:0 alpha:1]];
     [self setUpFetchedResultsController];
     [self setUpTableView];
-    [self setUpSearchBar];
 }
 
 - (void)viewDidLoad {
@@ -36,26 +34,7 @@
 }
 
 - (void)setUpFetchedResultsController {
-    NSManagedObjectContext *context = [NSManagedObjectContext hotelManagerContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Reservation"];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startDate" ascending:YES];
-    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    
-    self.resultsController = [[NSFetchedResultsController alloc]
-                                              initWithFetchRequest:fetchRequest
-                                              managedObjectContext:context
-                                              sectionNameKeyPath:nil
-                                              cacheName:nil];
-    
-    NSError *error;
-    BOOL success = [self.resultsController performFetch:&error];
-    if (success) {
-        NSLog(@"Successfully set up NSFetchedResultsController");
-    }
-    if (error) {
-        NSLog(@"Error: %@", error.localizedDescription);
-    }
+    self.resultsController = [[NSFetchedResultsController alloc] init];
 }
 
 - (void)setUpTableView {
@@ -76,10 +55,6 @@
     tableViewLeading.active = YES;
     tableViewTrailing.active = YES;
     tableViewBottom.active = YES;
-}
-
-- (void)setUpSearchBar {
-    
 }
 
 #pragma mark - UITableViewDelegate, UITableViewDataSource
@@ -116,7 +91,97 @@
     UIView *barView = self.searchBar.subviews.firstObject;
     UITextField *textField = (UITextField *)[[barView subviews] objectAtIndex:1];
     textField.font = [UIFont fontWithName:@"Papyrus" size:15];
+    self.searchBar.delegate = self;
     return self.searchBar;
+}
+
+#pragma mark - UISearchBarDelegate
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    NSManagedObjectContext *context = [NSManagedObjectContext hotelManagerContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Reservation"];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startDate" ascending:YES];
+    NSString *searchString = [[@"*" stringByAppendingString:searchText] stringByAppendingString:@"*"];
+    if (searchText.length == 0) {
+        self.resultsController = nil;
+    } else {
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"guest.firstName LIKE[cd] %@ OR guest.lastName LIKE[cd] %@",searchString, searchString];
+        NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+        [fetchRequest setSortDescriptors:sortDescriptors];
+        NSError *error;
+        self.resultsController = nil;
+        self.resultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
+        BOOL success = [self.resultsController performFetch:&error];
+        if (success) {
+//            NSNSLog(@"searched for %@.",searchString);
+        }
+        if (error) {
+            NSLog(@"Error: %@", error.localizedDescription);
+        }
+    }
+    [self.tableView reloadData];
+}
+
+#pragma mark - NSFetchedResultsControllerDelegate
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView beginUpdates];
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        default: break;
+    }
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    UITableView *tableView = self.tableView;
+    
+    switch(type) {
+            
+        case NSFetchedResultsChangeInsert:
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+//            [self configureCell:[tableView cellForRowAtIndexPath:indexPath]
+//                    atIndexPath:indexPath];
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView endUpdates];
 }
 
 @end
