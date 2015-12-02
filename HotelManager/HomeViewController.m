@@ -97,6 +97,7 @@
     
     [browseButton addTarget:self action:@selector(browseButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [bookButton addTarget:self action:@selector(bookButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [lookupButton addTarget:self action:@selector(lookupButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)browseButtonPressed {
@@ -107,6 +108,10 @@
 - (void)bookButtonPressed {
     BookViewController *bookVC = [[BookViewController alloc] init];
     [self.navigationController pushViewController:bookVC animated:YES];
+}
+
+- (void)lookupButtonPressed {
+    
 }
 
 @end
