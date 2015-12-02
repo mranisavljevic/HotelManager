@@ -8,13 +8,12 @@
 
 #import "Hotel.h"
 #import "Room.h"
-#import "AppDelegate.h"
+#import "NSObject+NSManagedObjectContext.h"
 
 @implementation Hotel
 
 + (instancetype)hotelWithName:(NSString *)name location:(NSString *)location stars:(NSNumber *)stars {
-    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    Hotel *hotel = [NSEntityDescription insertNewObjectForEntityForName:@"Hotel" inManagedObjectContext:delegate.managedObjectContext];
+    Hotel *hotel = [NSEntityDescription insertNewObjectForEntityForName:@"Hotel" inManagedObjectContext:[NSManagedObjectContext hotelManagerContext]];
     hotel.name = name;
     hotel.location = location;
     hotel.stars = stars;

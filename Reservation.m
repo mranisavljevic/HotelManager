@@ -9,13 +9,12 @@
 #import "Reservation.h"
 #import "Guest.h"
 #import "Room.h"
-#import "AppDelegate.h"
+#import "NSObject+NSManagedObjectContext.h"
 
 @implementation Reservation
 
 + (instancetype)reservationWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate {
-    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    Reservation *reservation = [NSEntityDescription insertNewObjectForEntityForName:@"Reservation" inManagedObjectContext:delegate.managedObjectContext];
+    Reservation *reservation = [NSEntityDescription insertNewObjectForEntityForName:@"Reservation" inManagedObjectContext:[NSManagedObjectContext hotelManagerContext]];
     reservation.startDate = startDate;
     reservation.endDate = endDate;
     return reservation;

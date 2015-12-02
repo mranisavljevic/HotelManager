@@ -9,13 +9,12 @@
 #import "Room.h"
 #import "Hotel.h"
 #import "Reservation.h"
-#import "AppDelegate.h"
+#import "NSObject+NSManagedObjectContext.h"
 
 @implementation Room
 
 + (instancetype)roomWithNumber:(NSNumber *)number beds:(NSNumber *)beds rate:(NSNumber *)rate {
-    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    Room *room = [NSEntityDescription insertNewObjectForEntityForName:@"Room" inManagedObjectContext:delegate.managedObjectContext];
+    Room *room = [NSEntityDescription insertNewObjectForEntityForName:@"Room" inManagedObjectContext:[NSManagedObjectContext hotelManagerContext]];
     room.number = number;
     room.beds = beds;
     room.rate = rate;

@@ -8,13 +8,12 @@
 
 #import "Guest.h"
 #import "Reservation.h"
-#import "AppDelegate.h"
+#import "NSObject+NSManagedObjectContext.h"
 
 @implementation Guest
 
 + (instancetype)guestWithFirstName:(NSString *)firstName lastName:(NSString *)lastName {
-    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    Guest *guest = [NSEntityDescription insertNewObjectForEntityForName:@"Guest" inManagedObjectContext:delegate.managedObjectContext];
+    Guest *guest = [NSEntityDescription insertNewObjectForEntityForName:@"Guest" inManagedObjectContext:[NSManagedObjectContext hotelManagerContext]];
     guest.firstName = firstName;
     guest.lastName = lastName;
     return guest;
