@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @import CoreData;
 #import "NSObject+NSManagedObjectContext.h"
+#import "Reservation.h"
 
 @interface LookupViewController : UIViewController
 
