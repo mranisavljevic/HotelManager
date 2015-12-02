@@ -10,6 +10,11 @@
 
 @implementation Reservation
 
-// Insert code here to add functionality to your managed object subclass
++ (instancetype)reservationWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate {
+    Reservation *reservation = [NSEntityDescription insertNewObjectForEntityForName:@"Reservation" inManagedObjectContext:[NSManagedObjectContext hotelManagerContext]];
+    reservation.startDate = startDate;
+    reservation.endDate = endDate;
+    return reservation;
+}
 
 @end

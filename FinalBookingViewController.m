@@ -137,13 +137,25 @@
 }
 
 - (void)saveButtonSelected:(UIBarButtonItem *)sender {
-    Reservation *reservation = [NSEntityDescription entityForName:@"Reservation" inManagedObjectContext:[NSManagedObjectContext hotelManagerContext]];
-    reservation.startDate = self.startDate;
-    reservation.endDate = self.endDate;
-    reservation.room = self.room;
-    self.room.reservation = reservation;
-    
-    ///Working on saving - need to create custom initializers for CD models.
+    if (self.firstNameTextField.text.length > 0 && self.lastNameTextField.text.length > 0) {
+        Reservation *reservation = [Reservation reservationWithStartDate:self.startDate endDate:self.endDate];
+        reservation.room = self.room;
+        reservation.guest = [Guest guestWithFirstName:self.firstNameTextField.text lastName:self.lastNameTextField.text];
+        self.room.reservation = reservation;
+        
+        NSError *saveError;
+        [[NSManagedObjectContext hotelManagerContext] save:&saveError];
+        if (saveError) {
+            NSLog(@"%@", saveError.userInfo);
+        } else {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+    } else {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"What!?!" message:@"Put your names in there!" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:okAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
 }
 
 @end

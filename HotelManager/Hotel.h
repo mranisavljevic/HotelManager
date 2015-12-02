@@ -6,8 +6,9 @@
 //  Copyright © 2015 creeperspeak. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+@import Foundation;
+@import CoreData;
+#import "NSObject+NSManagedObjectContext.h"
 
 @class Room;
 
@@ -15,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Hotel : NSManagedObject
 
-// Insert code here to declare functionality of your managed object subclass
++ (instancetype)hotelWithName:(NSString *)name location:(NSString *)location stars:(NSNumber *)stars;
 
 @end
 

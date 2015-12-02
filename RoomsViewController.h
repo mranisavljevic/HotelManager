@@ -7,7 +7,6 @@
 //
 
 @import UIKit;
-#import "Hotel.h"
 #import "Room.h"
 #import "AppDelegate.h"
 

@@ -11,6 +11,12 @@
 
 @implementation Hotel
 
-// Insert code here to add functionality to your managed object subclass
++ (instancetype)hotelWithName:(NSString *)name location:(NSString *)location stars:(NSNumber *)stars {
+    Hotel *hotel = [NSEntityDescription insertNewObjectForEntityForName:@"Hotel" inManagedObjectContext:[NSManagedObjectContext hotelManagerContext]];
+    hotel.name = name;
+    hotel.location = location;
+    hotel.stars = stars;
+    return hotel;
+}
 
 @end
