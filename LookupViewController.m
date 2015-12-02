@@ -18,23 +18,56 @@
 
 @implementation LookupViewController
 
+- (UISearchBar *)searchBar {
+    if (!_searchBar) {
+        _searchBar = [[UISearchBar alloc] init];
+        _searchBar.placeholder = @"Search Reservations";
+        
+        UIView *barView = _searchBar.subviews.firstObject;
+        UITextField *textField = (UITextField *)[[barView subviews] objectAtIndex:1];
+        
+        textField.font = [UIFont fontWithName:@"Papyrus" size:15];
+        _searchBar.delegate = self;
+        
+    }
+    
+    return _searchBar;
+}
+
+- (NSFetchedResultsController *) resultsController {
+    if (!_resultsController) {
+        
+        NSManagedObjectContext *context = [NSManagedObjectContext hotelManagerContext];
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Reservation"];
+        fetchRequest.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"startDate" ascending:YES]];
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"guest.firstName == %@", @"kjfhakdfjghlsdkfjhg"];
+        
+        _resultsController = [[NSFetchedResultsController alloc]initWithFetchRequest: fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
+        _resultsController.delegate = self;
+        
+        [_resultsController performFetch:nil];
+    }
+    
+    return _resultsController;
+}
+
 - (void)loadView {
     [super loadView];
     [self.view setBackgroundColor:[UIColor colorWithWhite:0 alpha:1]];
-    [self setUpFetchedResultsController];
-    [self setUpTableView];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpTableView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.searchBar becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-- (void)setUpFetchedResultsController {
-    self.resultsController = [[NSFetchedResultsController alloc] init];
 }
 
 - (void)setUpTableView {
@@ -70,9 +103,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
+    
     cell.backgroundColor = [UIColor colorWithWhite:0.937 alpha:1.000];
     cell.layer.cornerRadius = 5.0;
     [cell.textLabel setFont:[UIFont fontWithName:@"Papyrus" size:20]];
@@ -86,40 +121,30 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    self.searchBar = [[UISearchBar alloc] init];
-    self.searchBar.placeholder = @"Search Reservations";
-    UIView *barView = self.searchBar.subviews.firstObject;
-    UITextField *textField = (UITextField *)[[barView subviews] objectAtIndex:1];
-    textField.font = [UIFont fontWithName:@"Papyrus" size:15];
-    self.searchBar.delegate = self;
     return self.searchBar;
 }
 
 #pragma mark - UISearchBarDelegate
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    NSManagedObjectContext *context = [NSManagedObjectContext hotelManagerContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Reservation"];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startDate" ascending:YES];
-    NSString *searchString = [[@"*" stringByAppendingString:searchText] stringByAppendingString:@"*"];
+
     if (searchText.length == 0) {
-        self.resultsController = nil;
+        self.resultsController.fetchRequest.predicate = [NSPredicate predicateWithFormat:@"guest.firstName == %@", @"kjfhakdfjghlsdkfjhg"];
     } else {
-        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"guest.firstName LIKE[cd] %@ OR guest.lastName LIKE[cd] %@",searchString, searchString];
-        NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-        [fetchRequest setSortDescriptors:sortDescriptors];
-        NSError *error;
-        self.resultsController = nil;
-        self.resultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
-        BOOL success = [self.resultsController performFetch:&error];
-        if (success) {
-//            NSNSLog(@"searched for %@.",searchString);
-        }
-        if (error) {
-            NSLog(@"Error: %@", error.localizedDescription);
-        }
+        NSString *searchString = [[@"*" stringByAppendingString:searchText] stringByAppendingString:@"*"];
+        self.resultsController.fetchRequest.predicate = [NSPredicate predicateWithFormat:@"guest.firstName LIKE[cd] %@ OR guest.lastName LIKE[cd] %@",searchString, searchString];
     }
+    
+    
+    [self.resultsController performFetch:nil];
+//    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationBottom];
+//    [self.searchBar becomeFirstResponder];
     [self.tableView reloadData];
+    
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate
@@ -151,17 +176,15 @@
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath {
     
-    UITableView *tableView = self.tableView;
-    
     switch(type) {
             
         case NSFetchedResultsChangeInsert:
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case NSFetchedResultsChangeDelete:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
             
@@ -171,9 +194,9 @@
             break;
             
         case NSFetchedResultsChangeMove:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
     }
