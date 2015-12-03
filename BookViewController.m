@@ -33,7 +33,7 @@
 }
 
 - (void)setUpBookViewController {
-    [self.navigationItem setTitle:@"Book Dates"];
+    [self.navigationItem setTitle:NSLocalizedString(@"Book Dates", nil)];
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonPressed:)];
     self.navigationItem.rightBarButtonItem = doneButton;
 }
@@ -84,8 +84,8 @@
     UILabel *startLabel = [[UILabel alloc] init];
     UILabel *endLabel = [[UILabel alloc] init];
     
-    startLabel.text = @"Check In:";
-    endLabel.text = @"Check Out:";
+    startLabel.text = NSLocalizedString(@"Check In:", nil);
+    endLabel.text = NSLocalizedString(@"Check Out:", nil);
     
     startLabel.textColor = [UIColor blackColor];
     endLabel.textColor = [UIColor blackColor];
@@ -123,8 +123,8 @@
     NSDate *startDate = self.startDatePicker.date;
     NSDate *endDate = self.endDatePicker.date;
     if (startDate >= endDate) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"What!?!" message:@"You can't book a stay for negative days!" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"What!?!", nil) message:NSLocalizedString(@"You can't book a stay for negative days!", nil) preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [self.endDatePicker setDate:[NSDate dateWithTimeInterval:86400 sinceDate:startDate] animated:YES];
         }];
         [alertController addAction:okAction];

@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  HotelManager
+
+  Created by Miles Ranisavljevic on 12/3/15.
+  Copyright © 2015 creeperspeak. All rights reserved.
+*/
+
+"Hotel Manager" = "مدير الفندق";
+"Browse Hotels" = "استعرض الفنادق";
+"Book Hotels" = "حجوزات فنادق";
+"Look Up Reservations" = "بحث عن الحجز";
+"Hotels" = "الفنادق";
+"Rooms" = "الغرف";
+"Room: %i - %i beds - $%.2f per night." = "غرف: %@ - %@ أسرة - لالليل.";

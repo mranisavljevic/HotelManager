@@ -94,7 +94,7 @@
     cell.layer.cornerRadius = 5.0;
     [cell.textLabel setFont:[UIFont fontWithName:@"Papyrus" size:20]];
     Room *currentRoom = self.datasource[indexPath.section][indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"Room %@ - %@ beds - $%.2f per night.", currentRoom.number, currentRoom.beds, currentRoom.rate.floatValue];
+    cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Room %@ - %@ beds - $%.2f per night.", nil), currentRoom.number, currentRoom.beds, currentRoom.rate.floatValue];
     return cell;
 }
 

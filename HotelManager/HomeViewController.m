@@ -31,7 +31,7 @@
 - (void)setUpView {
     NSDictionary *titleAttributes = @{NSFontAttributeName : [UIFont fontWithName:@"Papyrus" size:20]};
     self.navigationController.navigationBar.titleTextAttributes = titleAttributes;
-    [self.navigationItem setTitle:@"Hotel Manager"];
+    [self.navigationItem setTitle: NSLocalizedString(@"Hotel Manager", nil)];
 }
 
 - (void)setUpCustomLayout {
@@ -49,9 +49,9 @@
     [bookButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [lookupButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
-    [browseButton setTitle:@"Browse Hotels" forState:UIControlStateNormal];
-    [bookButton setTitle:@"Book Hotels" forState:UIControlStateNormal];
-    [lookupButton setTitle:@"Look Up Reservation" forState:UIControlStateNormal];
+    [browseButton setTitle:NSLocalizedString(@"Browse Hotels", nil) forState:UIControlStateNormal];
+    [bookButton setTitle:NSLocalizedString(@"Book Hotels", nil) forState:UIControlStateNormal];
+    [lookupButton setTitle:NSLocalizedString(@"Look Up Reservations", nil) forState:UIControlStateNormal];
     
     [[browseButton titleLabel] setFont:[UIFont fontWithName:@"Papyrus" size:24]];
     [[bookButton titleLabel] setFont:[UIFont fontWithName:@"Papyrus" size:24]];

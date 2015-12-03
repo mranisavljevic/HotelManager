@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  HotelManager
+
+  Created by Miles Ranisavljevic on 12/3/15.
+  Copyright © 2015 creeperspeak. All rights reserved.
+*/
+
+"Hotel Manager" = "Hótelstjóri";
+"Browse Hotels" = "Flokka Hótel";
+"Book Hotels" = "Bóka Hótel";
+"Look Up Reservations" = "Leita Hótelpantanir";
+"Hotels" = "Hótel";
+"Rooms" = "Herbergin";
+"Room: %i - %i beds - $%.2f per night." = "Herbergi: %i - %i rúm - $%.2f á nótt.";
+"Room %@ - %@ beds - $%.2f per night." = "Herbergi: %@ - %@ rúm - $%.2f á nótt.";
+"Check In:" = "Innritun:";
+"Check Out:" = "Athuga:";
+"Book Dates" = "Bók Dagsetningar";
+"What!?!" = "Hvað!?!";
+"You can't book a stay for negative days!" = "Þú getur ekki bóka dvöl fyrir neikvæðum daga!";
+"Put your names in there!" = "Setja nöfn í það!";
+"OK" = "OK";
+"Search Reservations" = "Leita Hótelpantanir";
+"Room %@ - %@ beds - $%.2f per night. Check-in: %@ Check-out: %@" = "Herbergi %@ - %@ rúm - $%.2f á nótt. Innritun %@ Athuga: %@";
+"Total: $%.2f" = "Heildarkostnaður vegna: $%.2f";
+"Confirm" = "Staðfesta";
+" First Name" = " Fornafn";
+" Last Name" = " Kenninafn";

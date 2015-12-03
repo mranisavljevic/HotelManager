@@ -21,7 +21,7 @@
 - (UISearchBar *)searchBar {
     if (!_searchBar) {
         _searchBar = [[UISearchBar alloc] init];
-        _searchBar.placeholder = @"Search Reservations";
+        _searchBar.placeholder = NSLocalizedString(@"Search Reservations", nil);
         
         UIView *barView = _searchBar.subviews.firstObject;
         UITextField *textField = (UITextField *)[[barView subviews] objectAtIndex:1];

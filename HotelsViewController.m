@@ -50,7 +50,7 @@
     self.datasource = [self datasource];
     NSDictionary *titleAttributes = @{NSFontAttributeName : [UIFont fontWithName:@"Papyrus" size:20]};
     self.navigationController.navigationBar.titleTextAttributes = titleAttributes;
-    [self.navigationItem setTitle:@"Hotels"];
+    [self.navigationItem setTitle:NSLocalizedString(@"Hotels", nil)];
 }
 
 - (void)setUpTableView {

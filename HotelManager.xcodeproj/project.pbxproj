@@ -28,6 +28,7 @@
 		905EAA161C10E5FB000FA085 /* libFlurry_7.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 905EAA151C10E5FB000FA085 /* libFlurry_7.3.0.a */; };
 		905EAA2C1C10E7B4000FA085 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905EAA2B1C10E7B4000FA085 /* Security.framework */; };
 		905EAA2E1C10E7BB000FA085 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905EAA2D1C10E7BB000FA085 /* SystemConfiguration.framework */; };
+		905EAA341C10F3A2000FA085 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 905EAA361C10F3A2000FA085 /* Localizable.strings */; };
 		90B88EFA1C0CE8CF00B045CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B88EF91C0CE8CF00B045CD /* main.m */; };
 		90B88EFD1C0CE8CF00B045CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B88EFC1C0CE8CF00B045CD /* AppDelegate.m */; };
 		90B88F061C0CE8CF00B045CD /* HotelManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90B88F041C0CE8CF00B045CD /* HotelManager.xcdatamodeld */; };
@@ -100,6 +101,9 @@
 		905EAA2B1C10E7B4000FA085 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		905EAA2D1C10E7BB000FA085 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		905EAA301C10E941000FA085 /* HotelManager1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HotelManager1.1.xcdatamodel; sourceTree = "<group>"; };
+		905EAA351C10F3A2000FA085 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		905EAA381C1103B4000FA085 /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = is.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		905EAA391C1103B4000FA085 /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = is.lproj/Localizable.strings; sourceTree = "<group>"; };
 		90B88EF51C0CE8CF00B045CD /* HotelManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotelManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90B88EF91C0CE8CF00B045CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		90B88EFB1C0CE8CF00B045CD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -313,6 +317,7 @@
 				903669BA1C0FA9C4007BDB69 /* CoreData */,
 				903669BE1C0FBBD3007BDB69 /* ReservationService.h */,
 				903669BF1C0FBBD3007BDB69 /* ReservationService.m */,
+				905EAA361C10F3A2000FA085 /* Localizable.strings */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -430,6 +435,7 @@
 			knownRegions = (
 				en,
 				Base,
+				is,
 			);
 			mainGroup = 90B88EEC1C0CE8CF00B045CD;
 			productRefGroup = 90B88EF61C0CE8CF00B045CD /* Products */;
@@ -449,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90B88F551C0D1B8A00B045CD /* hotelRoom.jpg in Resources */,
+				905EAA341C10F3A2000FA085 /* Localizable.strings in Resources */,
 				90B88F4E1C0CF3EC00B045CD /* hotels.json in Resources */,
 				90B88F0B1C0CE8CF00B045CD /* LaunchScreen.storyboard in Resources */,
 				90B88F531C0D1B7D00B045CD /* badHotel.jpg in Resources */,
@@ -550,10 +557,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		905EAA361C10F3A2000FA085 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				905EAA351C10F3A2000FA085 /* en */,
+				905EAA391C1103B4000FA085 /* is */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		90B88F091C0CE8CF00B045CD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				90B88F0A1C0CE8CF00B045CD /* Base */,
+				905EAA381C1103B4000FA085 /* is */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
