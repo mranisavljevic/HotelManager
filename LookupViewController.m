@@ -137,14 +137,10 @@
     
     
     [self.resultsController performFetch:nil];
-//    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationBottom];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationBottom];
 //    [self.searchBar becomeFirstResponder];
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
     
-}
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    [searchBar resignFirstResponder];
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate
