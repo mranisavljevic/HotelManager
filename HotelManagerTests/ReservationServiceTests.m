@@ -32,7 +32,7 @@
     Room *dummyRoom = [Room roomWithNumber:[NSNumber numberWithInt:1] beds:[NSNumber numberWithInt:1] rate:[NSNumber numberWithInt:1]];
     NSDate *start = [NSDate date];
     NSDate *end = [NSDate date];
-    [ReservationService createReservationWithStartDate:start endDate:end room:dummyRoom firstName:@"First" lastName:@"Last" completion:^(BOOL success) {
+    [ReservationService createReservationWithStartDate:start endDate:end room:dummyRoom firstName:@"First" lastName:@"Last" totalCharge:100.0 completion:^(BOOL success) {
         XCTAssertTrue(success, @"The save success must be true.");
         if (success) {
             [ReservationService deleteReservationWithRoom:dummyRoom startDate:start endDate:end completion:^(BOOL success) {
@@ -45,7 +45,7 @@
     Room *dummyRoom = [Room roomWithNumber:[NSNumber numberWithInt:1] beds:[NSNumber numberWithInt:1] rate:[NSNumber numberWithInt:1]];
     NSDate *start = [NSDate date];
     NSDate *end = [NSDate date];
-    [ReservationService createReservationWithStartDate:start endDate:end room:dummyRoom firstName:@"First" lastName:@"Last" completion:^(BOOL success) {
+    [ReservationService createReservationWithStartDate:start endDate:end room:dummyRoom firstName:@"First" lastName:@"Last" totalCharge:100.0 completion:^(BOOL success) {
         if (success) {
             [ReservationService deleteReservationWithRoom:dummyRoom startDate:start endDate:end completion:^(BOOL success) {
                 XCTAssertTrue(success, @"The deletion success must be true.");

@@ -138,7 +138,9 @@
 
 - (void)saveButtonSelected:(UIBarButtonItem *)sender {
     if (self.firstNameTextField.text.length > 0 && self.lastNameTextField.text.length > 0) {
-        [ReservationService createReservationWithStartDate:self.startDate endDate:self.endDate room:self.room firstName:self.firstNameTextField.text lastName:self.lastNameTextField.text completion:^(BOOL success) {
+        int nights = floorf([self.endDate timeIntervalSinceDate:self.startDate] / 60 / 60 / 24);
+        float total = self.room.rate.floatValue * nights;
+        [ReservationService createReservationWithStartDate:self.startDate endDate:self.endDate room:self.room firstName:self.firstNameTextField.text lastName:self.lastNameTextField.text totalCharge:total completion:^(BOOL success) {
             if (success) {
                 [self.navigationController popToRootViewControllerAnimated:YES];
             }
