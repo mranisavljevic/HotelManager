@@ -11,6 +11,10 @@
 #import "Reservation.h"
 #import "Guest.h"
 
+typedef void(^completion)(BOOL success);
+
 @interface ReservationService : NSObject
+
++ (void)createReservationWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate room:(Room *)room firstName:(NSString *)firstName lastName:(NSString *)lastName completion:(completion)completion;
 
 @end
