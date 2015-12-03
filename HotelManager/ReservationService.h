@@ -17,5 +17,6 @@ typedef void(^completion)(BOOL success);
 
 + (void)createReservationWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate room:(Room *)room firstName:(NSString *)firstName lastName:(NSString *)lastName completion:(completion)completion;
 + (void)deleteReservationWithRoom:(Room *)room startDate:(NSDate *)startDate endDate:(NSDate *)endDate completion:(completion)completion;
++ (NSArray *)getAvailableRoomsWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate;
 
 @end

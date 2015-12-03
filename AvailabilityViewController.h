@@ -13,6 +13,7 @@
 #import "Hotel.h"
 #import "FinalBookingViewController.h"
 #import "NSObject+NSManagedObjectContext.h"
+#import "ReservationService.h"
 
 @interface AvailabilityViewController : UIViewController
 

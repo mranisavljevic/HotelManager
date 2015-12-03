@@ -42,8 +42,48 @@
                 completion(YES);
             }
         }
+    } else {
+        completion(NO);
     }
-    completion(NO);
+}
+
++ (NSArray *)getAvailableRoomsWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate {
+    NSFetchRequest *existingReservationsRequest = [[NSFetchRequest alloc] initWithEntityName:@"Reservation"];
+    existingReservationsRequest.predicate = [NSPredicate predicateWithFormat:@"startDate <= %@ AND endDate >= %@", endDate, startDate];
+    NSError *fetchError;
+    NSArray *existingReservations = [[NSManagedObjectContext hotelManagerContext] executeFetchRequest:existingReservationsRequest error:&fetchError];
+    
+    NSFetchRequest *allRoomsRequest = [[NSFetchRequest alloc] initWithEntityName:@"Room"];
+    NSError *allRoomFetchError;
+    NSArray *allRooms = [[NSManagedObjectContext hotelManagerContext] executeFetchRequest:allRoomsRequest error:&allRoomFetchError];
+    
+    NSMutableArray *unavailableRooms = [NSMutableArray new];
+    
+    for (Reservation *reservation in existingReservations) {
+        [unavailableRooms addObject:reservation.room];
+    }
+    
+    NSMutableArray *availableRooms = [[NSMutableArray alloc] initWithArray:allRooms];
+    
+    for (Room *room in unavailableRooms) {
+        [availableRooms removeObject:room];
+    }
+    
+    NSFetchRequest *hotelRequest = [[NSFetchRequest alloc] initWithEntityName:@"Hotel"];
+    NSError *hotelError;
+    NSArray *hotelsArray = [[NSManagedObjectContext hotelManagerContext] executeFetchRequest:hotelRequest error:&hotelError];
+    NSMutableArray *groupedAvailableRooms = [NSMutableArray arrayWithObject:hotelsArray];
+    for (Hotel *hotel in hotelsArray) {
+        NSMutableArray *tempArray = [NSMutableArray new];
+        for (Room *room in availableRooms) {
+            if ([room.hotel isEqual:hotel]) {
+                [tempArray addObject:room];
+            }
+        }
+        [groupedAvailableRooms addObject:tempArray];
+    }
+    NSArray *finalArray = [NSArray arrayWithArray:groupedAvailableRooms];
+    return finalArray;
 }
 
 @end
