@@ -26,4 +26,24 @@
     }
 }
 
++ (void)deleteReservationWithRoom:(Room *)room startDate:(NSDate *)startDate endDate:(NSDate *)endDate completion:(completion)completion {
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Reservation"];
+    NSManagedObjectContext *context = [NSManagedObjectContext hotelManagerContext];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"room = %@ AND startDate = %@ AND endDate = %@", room, startDate, endDate];
+    NSError *error;
+    NSArray *results = [context executeFetchRequest:fetchRequest error:&error];
+    if (!error) {
+        if (results.count == 1) {
+            Reservation *fetchedReservation = (Reservation *)results.firstObject;
+            [context deleteObject:fetchedReservation];
+            NSError *deleteError;
+            [context save:&deleteError];
+            if (!error) {
+                completion(YES);
+            }
+        }
+    }
+    completion(NO);
+}
+
 @end

@@ -13,6 +13,7 @@
 		903669B81C0F8DC4007BDB69 /* LookupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 903669B71C0F8DC4007BDB69 /* LookupViewController.m */; };
 		903669BD1C0FAA4A007BDB69 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 903669BC1C0FAA4A007BDB69 /* CoreDataStack.m */; };
 		903669C01C0FBBD3007BDB69 /* ReservationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 903669BF1C0FBBD3007BDB69 /* ReservationService.m */; };
+		903669C21C0FC3BE007BDB69 /* ReservationServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 903669C11C0FC3BE007BDB69 /* ReservationServiceTests.m */; };
 		904E0F7D1C0EA1B4003EF88B /* NSObject+NSManagedObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 904E0F7C1C0EA1B4003EF88B /* NSObject+NSManagedObjectContext.m */; };
 		904E0FBF1C0EB0F8003EF88B /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 904E0FB11C0EB0F8003EF88B /* Room.m */; };
 		904E0FC11C0EB0F8003EF88B /* Hotel.m in Sources */ = {isa = PBXBuildFile; fileRef = 904E0FB51C0EB0F8003EF88B /* Hotel.m */; };
@@ -67,6 +68,7 @@
 		903669BC1C0FAA4A007BDB69 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
 		903669BE1C0FBBD3007BDB69 /* ReservationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReservationService.h; sourceTree = "<group>"; };
 		903669BF1C0FBBD3007BDB69 /* ReservationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReservationService.m; sourceTree = "<group>"; };
+		903669C11C0FC3BE007BDB69 /* ReservationServiceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReservationServiceTests.m; sourceTree = "<group>"; };
 		904E0F7B1C0EA1B4003EF88B /* NSObject+NSManagedObjectContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSManagedObjectContext.h"; sourceTree = "<group>"; };
 		904E0F7C1C0EA1B4003EF88B /* NSObject+NSManagedObjectContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSManagedObjectContext.m"; sourceTree = "<group>"; };
 		904E0FB01C0EB0F8003EF88B /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Room.h; path = ../Room.h; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				90B88F151C0CE8CF00B045CD /* HotelManagerTests.m */,
+				903669C11C0FC3BE007BDB69 /* ReservationServiceTests.m */,
 				90B88F171C0CE8CF00B045CD /* Info.plist */,
 			);
 			path = HotelManagerTests;
@@ -460,6 +463,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				903669C21C0FC3BE007BDB69 /* ReservationServiceTests.m in Sources */,
 				90B88F161C0CE8CF00B045CD /* HotelManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

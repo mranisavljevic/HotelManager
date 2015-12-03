@@ -40,7 +40,7 @@
         NSManagedObjectContext *context = [NSManagedObjectContext hotelManagerContext];
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Reservation"];
         fetchRequest.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"startDate" ascending:YES]];
-        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"guest.firstName == %@", @"kjfhakdfjghlsdkfjhg"];
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"guest.firstName == %@", nil];
         
         _resultsController = [[NSFetchedResultsController alloc]initWithFetchRequest: fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
         _resultsController.delegate = self;
@@ -129,7 +129,7 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
 
     if (searchText.length == 0) {
-        self.resultsController.fetchRequest.predicate = [NSPredicate predicateWithFormat:@"guest.firstName == %@", @"kjfhakdfjghlsdkfjhg"];
+        self.resultsController.fetchRequest.predicate = [NSPredicate predicateWithFormat:@"guest.firstName == %@", nil];
     } else {
         NSString *searchString = [[@"*" stringByAppendingString:searchText] stringByAppendingString:@"*"];
         self.resultsController.fetchRequest.predicate = [NSPredicate predicateWithFormat:@"guest.firstName LIKE[cd] %@ OR guest.lastName LIKE[cd] %@",searchString, searchString];
