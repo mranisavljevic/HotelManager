@@ -23,6 +23,11 @@
 		904E0FCF1C0EB22A003EF88B /* Hotel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 904E0FC91C0EB22A003EF88B /* Hotel+CoreDataProperties.m */; };
 		904E0FD01C0EB22A003EF88B /* Reservation+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 904E0FCB1C0EB22A003EF88B /* Reservation+CoreDataProperties.m */; };
 		904E0FD11C0EB22A003EF88B /* Room+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 904E0FCD1C0EB22A003EF88B /* Room+CoreDataProperties.m */; };
+		905EAA101C10E41B000FA085 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905EAA0E1C10E41B000FA085 /* Fabric.framework */; };
+		905EAA111C10E41B000FA085 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905EAA0F1C10E41B000FA085 /* Crashlytics.framework */; };
+		905EAA161C10E5FB000FA085 /* libFlurry_7.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 905EAA151C10E5FB000FA085 /* libFlurry_7.3.0.a */; };
+		905EAA2C1C10E7B4000FA085 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905EAA2B1C10E7B4000FA085 /* Security.framework */; };
+		905EAA2E1C10E7BB000FA085 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905EAA2D1C10E7BB000FA085 /* SystemConfiguration.framework */; };
 		90B88EFA1C0CE8CF00B045CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B88EF91C0CE8CF00B045CD /* main.m */; };
 		90B88EFD1C0CE8CF00B045CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B88EFC1C0CE8CF00B045CD /* AppDelegate.m */; };
 		90B88F061C0CE8CF00B045CD /* HotelManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90B88F041C0CE8CF00B045CD /* HotelManager.xcdatamodeld */; };
@@ -87,6 +92,13 @@
 		904E0FCB1C0EB22A003EF88B /* Reservation+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Reservation+CoreDataProperties.m"; path = "../Reservation+CoreDataProperties.m"; sourceTree = "<group>"; };
 		904E0FCC1C0EB22A003EF88B /* Room+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Room+CoreDataProperties.h"; path = "../Room+CoreDataProperties.h"; sourceTree = "<group>"; };
 		904E0FCD1C0EB22A003EF88B /* Room+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Room+CoreDataProperties.m"; path = "../Room+CoreDataProperties.m"; sourceTree = "<group>"; };
+		905EAA0E1C10E41B000FA085 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		905EAA0F1C10E41B000FA085 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		905EAA131C10E5FB000FA085 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		905EAA141C10E5FB000FA085 /* FlurryWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryWatch.h; sourceTree = "<group>"; };
+		905EAA151C10E5FB000FA085 /* libFlurry_7.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_7.3.0.a; sourceTree = "<group>"; };
+		905EAA2B1C10E7B4000FA085 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		905EAA2D1C10E7BB000FA085 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		90B88EF51C0CE8CF00B045CD /* HotelManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotelManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90B88EF91C0CE8CF00B045CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		90B88EFB1C0CE8CF00B045CD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -117,6 +129,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				905EAA2E1C10E7BB000FA085 /* SystemConfiguration.framework in Frameworks */,
+				905EAA2C1C10E7B4000FA085 /* Security.framework in Frameworks */,
+				905EAA111C10E41B000FA085 /* Crashlytics.framework in Frameworks */,
+				905EAA161C10E5FB000FA085 /* libFlurry_7.3.0.a in Frameworks */,
+				905EAA101C10E41B000FA085 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +207,28 @@
 			name = CoreData;
 			sourceTree = "<group>";
 		};
+		905EAA121C10E5FB000FA085 /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				905EAA131C10E5FB000FA085 /* Flurry.h */,
+				905EAA141C10E5FB000FA085 /* FlurryWatch.h */,
+				905EAA151C10E5FB000FA085 /* libFlurry_7.3.0.a */,
+			);
+			path = Flurry;
+			sourceTree = SOURCE_ROOT;
+		};
+		905EAA2F1C10E834000FA085 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				905EAA121C10E5FB000FA085 /* Flurry */,
+				905EAA2D1C10E7BB000FA085 /* SystemConfiguration.framework */,
+				905EAA2B1C10E7B4000FA085 /* Security.framework */,
+				905EAA0E1C10E41B000FA085 /* Fabric.framework */,
+				905EAA0F1C10E41B000FA085 /* Crashlytics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		90B88EEC1C0CE8CF00B045CD = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +236,7 @@
 				90B88F141C0CE8CF00B045CD /* HotelManagerTests */,
 				90B88F1F1C0CE8CF00B045CD /* HotelManagerUITests */,
 				90B88EF61C0CE8CF00B045CD /* Products */,
+				905EAA2F1C10E834000FA085 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -313,6 +353,7 @@
 				90B88EF11C0CE8CF00B045CD /* Sources */,
 				90B88EF21C0CE8CF00B045CD /* Frameworks */,
 				90B88EF31C0CE8CF00B045CD /* Resources */,
+				905EAA0D1C10E3E6000FA085 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -429,6 +470,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		905EAA0D1C10E3E6000FA085 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run d2670f4cba4ee6201633340ca53ec0ea2488d3b5 54ee1ec56bbcd4d9f0cc28b0d615c86f8b9a3f6f15a6e8be64d51b2850a70aa9";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		90B88EF11C0CE8CF00B045CD /* Sources */ = {
@@ -589,9 +646,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HotelManager/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flurry",
+					"$(PROJECT_DIR)/FlurryAds",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.creeperspeak.HotelManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -601,9 +667,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HotelManager/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flurry",
+					"$(PROJECT_DIR)/FlurryAds",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.creeperspeak.HotelManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "CoreDataStack.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+#import "Flurry.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +23,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [Fabric with:@[[Crashlytics class]]];
+    [Flurry startSession:@"RX329M79VYW29BDZ9PZJ"];
     [self setUpRootViewController];
     [self bootstrapApp];
     return YES;
