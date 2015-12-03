@@ -7,6 +7,7 @@
 //
 
 #import "FinalBookingViewController.h"
+#import "Flurry.h"
 
 @interface FinalBookingViewController ()
 
@@ -71,7 +72,6 @@
     NSLayoutConstraint *bookingLeading = [NSLayoutConstraint constraintWithItem:bookingLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1.0 constant:20.0];
     NSLayoutConstraint *bookingTrailing = [NSLayoutConstraint constraintWithItem:bookingLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:-20.0];
     
-//    NSLayoutConstraint *totalCenterX = [NSLayoutConstraint constraintWithItem:totalLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
     NSLayoutConstraint *totalTop = [NSLayoutConstraint constraintWithItem:totalLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:bookingLabel attribute:NSLayoutAttributeBottom multiplier:1.0 constant:8.0];
     NSLayoutConstraint *totalTrailing = [NSLayoutConstraint constraintWithItem:totalLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:8.0];
     NSLayoutConstraint *totalLeading = [NSLayoutConstraint constraintWithItem:totalLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1.0 constant:8.0];
@@ -88,7 +88,6 @@
     bookingLeading.active = YES;
     bookingTrailing.active = YES;
     
-//    totalCenterX.active = YES;
     totalTop.active = YES;
     totalTrailing.active = YES;
     totalLeading.active = YES;
@@ -154,6 +153,7 @@
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:okAction];
         [self presentViewController:alertController animated:YES completion:nil];
+        [Flurry logEvent:@"User tried to reserve without entering name."];
     }
 }
 
