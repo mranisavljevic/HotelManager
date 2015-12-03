@@ -136,18 +136,10 @@
     return cell;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-//    return 44.0;
-//}
-//
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-//    return self.searchBar;
-//}
-
 #pragma mark - UISearchBarDelegate
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-
+    NSUInteger resultCount = [[self.resultsController.sections objectAtIndex:0] numberOfObjects];
     if (searchText.length == 0) {
         self.resultsController.fetchRequest.predicate = [NSPredicate predicateWithFormat:@"guest.firstName == %@", nil];
     } else {
@@ -157,10 +149,10 @@
     
     
     [self.resultsController performFetch:nil];
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationBottom];
-//    [self.searchBar becomeFirstResponder];
-//    [self.tableView reloadData];
-    
+    NSUInteger updatedResultCount = [[self.resultsController.sections objectAtIndex:0] numberOfObjects];
+    if (!(resultCount == updatedResultCount)) {
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationBottom];
+    }
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate
