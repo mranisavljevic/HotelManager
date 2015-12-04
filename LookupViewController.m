@@ -124,15 +124,16 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    }
+    cell = [cell initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
     
     cell.backgroundColor = [UIColor colorWithWhite:0.937 alpha:1.000];
     cell.layer.cornerRadius = 5.0;
     [cell.textLabel setFont:[UIFont fontWithName:@"Papyrus" size:20]];
+    [cell.detailTextLabel setFont:[UIFont fontWithName:@"Papyrus" size:12]];
+    cell.detailTextLabel.textColor = [UIColor blackColor];
     Reservation *reservation = [self.resultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", reservation.guest.firstName, reservation.guest.lastName];
+    [cell.detailTextLabel setText:[NSString stringWithFormat:NSLocalizedString(@"%@, room %@ - $%.2f due.", nil), reservation.room.hotel.name, reservation.room.number, reservation.totalCharge]];
     return cell;
 }
 

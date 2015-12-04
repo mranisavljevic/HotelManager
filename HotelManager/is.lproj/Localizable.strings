@@ -27,3 +27,4 @@
 "Confirm" = "Staðfesta";
 " First Name" = " Fornafn";
 " Last Name" = " Kenninafn";
+"%@, room %@ - $%.2f due." = "%@, herbergi %@ - $%.2f vegna.";

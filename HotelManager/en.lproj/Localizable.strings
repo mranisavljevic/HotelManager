@@ -25,4 +25,5 @@
 "Confirm" = "Confirm";
 " First Name" = " First Name";
 " Last Name" = " Last Name";
+"%@, room %@ - $%.2f due." = "%@, room %@ - $%.2f due.";
 
