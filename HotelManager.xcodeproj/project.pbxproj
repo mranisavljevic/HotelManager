@@ -62,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		900FCF2A1C111FFD001BD6EE /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		900FCF2B1C111FFD001BD6EE /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9019E8FD1C0E3641005A6BE6 /* BookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookViewController.h; sourceTree = "<group>"; };
 		9019E8FE1C0E3641005A6BE6 /* BookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookViewController.m; sourceTree = "<group>"; };
 		9019E9021C0E48EC005A6BE6 /* AvailabilityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvailabilityViewController.h; sourceTree = "<group>"; };
@@ -436,6 +438,7 @@
 				en,
 				Base,
 				is,
+				uk,
 			);
 			mainGroup = 90B88EEC1C0CE8CF00B045CD;
 			productRefGroup = 90B88EF61C0CE8CF00B045CD /* Products */;
@@ -562,6 +565,7 @@
 			children = (
 				905EAA351C10F3A2000FA085 /* en */,
 				905EAA391C1103B4000FA085 /* is */,
+				900FCF2B1C111FFD001BD6EE /* uk */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -571,6 +575,7 @@
 			children = (
 				90B88F0A1C0CE8CF00B045CD /* Base */,
 				905EAA381C1103B4000FA085 /* is */,
+				900FCF2A1C111FFD001BD6EE /* uk */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
