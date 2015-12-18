@@ -13,10 +13,11 @@
 
 @implementation Reservation
 
-+ (instancetype)reservationWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate {
++ (instancetype)reservationWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate totalCharge:(float)totalCharge {
     Reservation *reservation = [NSEntityDescription insertNewObjectForEntityForName:@"Reservation" inManagedObjectContext:[NSManagedObjectContext hotelManagerContext]];
     reservation.startDate = startDate;
     reservation.endDate = endDate;
+    reservation.totalCharge = totalCharge;
     return reservation;
 }
 

@@ -15,6 +15,7 @@
 
 @dynamic endDate;
 @dynamic startDate;
+@dynamic totalCharge;
 @dynamic guest;
 @dynamic room;
 

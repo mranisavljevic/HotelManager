@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  HotelManager
+
+  Created by Miles Ranisavljevic on 12/3/15.
+  Copyright © 2015 creeperspeak. All rights reserved.
+*/
+
+"Hotel Manager" = "Менеджер готелю";
+"Browse Hotels" = "Пошук готелів";
+"Book Hotels" = "забронювати готель";
+"Look Up Reservations" = "Подивіться застереження";
+"Hotels" = "Готелі";
+"Rooms" = "кімнати";
+"Room: %i - %i beds - $%.2f per night." = "кімната: %i - %i ліжка - $%.2f на добу.";
+"Room %@ - %@ beds - $%.2f per night." = "кімната: %@ - %@ ліжка - $%.2f на добу.";
+"Check In:" = "заїзду:";
+"Check Out:" = "від'їзд:";
+"Book Dates" = "книга дати";
+"What!?!" = "Що!?!";
+"You can't book a stay for negative days!" = "Ви не можете забронювати перебування для негативних днів!";
+"Put your names in there!" = "Покладіть ваші імена в там!";
+"OK" = "добре";
+"Search Reservations" = "Пошук Бронювання";
+"Room %@ - %@ beds - $%.2f per night. Check-in: %@ Check-out: %@" = "кімната %@ - %@ ліжка - $%.2f на добу. заїзду: %@ від'їзд: %@";
+"Total: $%.2f" = "Загальна сума заборгованості: $%.2f";
+"Confirm" = "підтвердити";
+" First Name" = "Ім'я";
+" Last Name" = " Прізвище";
+"%@, room %@ - $%.2f due." = "%@, кімната %@ - $%.2f сума боргу.";
+

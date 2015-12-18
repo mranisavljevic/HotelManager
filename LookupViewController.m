@@ -21,7 +21,7 @@
 - (UISearchBar *)searchBar {
     if (!_searchBar) {
         _searchBar = [[UISearchBar alloc] init];
-        _searchBar.placeholder = @"Search Reservations";
+        _searchBar.placeholder = NSLocalizedString(@"Search Reservations", nil);
         
         UIView *barView = _searchBar.subviews.firstObject;
         UITextField *textField = (UITextField *)[[barView subviews] objectAtIndex:1];
@@ -58,6 +58,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpSearchBar];
     [self setUpTableView];
 }
 
@@ -70,6 +71,25 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)setUpSearchBar {
+    UISearchBar *searchBar = self.searchBar;
+    [searchBar setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addSubview:searchBar];
+    
+    float navBarHeight = self.navigationController.navigationBar.frame.size.height;
+    
+    NSLayoutConstraint *searchBarTop = [NSLayoutConstraint constraintWithItem:searchBar attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:navBarHeight + 20.0];
+    NSLayoutConstraint *searchBarLeading = [NSLayoutConstraint constraintWithItem:searchBar attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *searchBarTrailing = [NSLayoutConstraint constraintWithItem:searchBar attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *searchBarHeight = [NSLayoutConstraint constraintWithItem:searchBar attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:44.0];
+    
+    searchBarTop.active = YES;
+    searchBarTrailing.active = YES;
+    searchBarLeading.active = YES;
+    searchBarHeight.active = YES;
+    
+}
+
 - (void)setUpTableView {
     self.tableView = [[UITableView alloc] init];
     self.tableView.delegate = self;
@@ -79,7 +99,7 @@
     [self.view addSubview:self.tableView];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     
-    NSLayoutConstraint *tableViewTop = [NSLayoutConstraint constraintWithItem:self.tableView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *tableViewTop = [NSLayoutConstraint constraintWithItem:self.tableView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.searchBar attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0];
     NSLayoutConstraint *tableViewLeading = [NSLayoutConstraint constraintWithItem:self.tableView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0];
     NSLayoutConstraint *tableViewTrailing = [NSLayoutConstraint constraintWithItem:self.tableView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0.0];
     NSLayoutConstraint *tableViewBottom = [NSLayoutConstraint constraintWithItem:self.tableView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0];
@@ -104,30 +124,23 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    }
+    cell = [cell initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
     
     cell.backgroundColor = [UIColor colorWithWhite:0.937 alpha:1.000];
     cell.layer.cornerRadius = 5.0;
     [cell.textLabel setFont:[UIFont fontWithName:@"Papyrus" size:20]];
+    [cell.detailTextLabel setFont:[UIFont fontWithName:@"Papyrus" size:12]];
+    cell.detailTextLabel.textColor = [UIColor blackColor];
     Reservation *reservation = [self.resultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", reservation.guest.firstName, reservation.guest.lastName];
+    [cell.detailTextLabel setText:[NSString stringWithFormat:NSLocalizedString(@"%@, room %@ - $%.2f due.", nil), reservation.room.hotel.name, reservation.room.number, reservation.totalCharge]];
     return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 44.0;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    return self.searchBar;
 }
 
 #pragma mark - UISearchBarDelegate
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-
+    NSUInteger resultCount = [[self.resultsController.sections objectAtIndex:0] numberOfObjects];
     if (searchText.length == 0) {
         self.resultsController.fetchRequest.predicate = [NSPredicate predicateWithFormat:@"guest.firstName == %@", nil];
     } else {
@@ -137,10 +150,10 @@
     
     
     [self.resultsController performFetch:nil];
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationBottom];
-//    [self.searchBar becomeFirstResponder];
-//    [self.tableView reloadData];
-    
+    NSUInteger updatedResultCount = [[self.resultsController.sections objectAtIndex:0] numberOfObjects];
+    if (!(resultCount == updatedResultCount)) {
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationBottom];
+    }
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate

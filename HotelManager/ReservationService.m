@@ -10,8 +10,8 @@
 
 @implementation ReservationService
 
-+ (void)createReservationWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate room:(Room *)room firstName:(NSString *)firstName lastName:(NSString *)lastName completion:(completion)completion {
-    Reservation *reservation = [Reservation reservationWithStartDate:startDate endDate:endDate];
++ (void)createReservationWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate room:(Room *)room firstName:(NSString *)firstName lastName:(NSString *)lastName totalCharge:(float)totalCharge completion:(completion)completion {
+    Reservation *reservation = [Reservation reservationWithStartDate:startDate endDate:endDate totalCharge:totalCharge];
     Guest *guest = [Guest guestWithFirstName:firstName lastName:lastName];
     reservation.guest = guest;
     reservation.room = room;

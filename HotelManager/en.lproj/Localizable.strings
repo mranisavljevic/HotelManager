@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  HotelManager
+
+  Created by Miles Ranisavljevic on 12/3/15.
+  Copyright © 2015 creeperspeak. All rights reserved.
+*/
+
+"Hotel Manager" = "Hotel Manager";
+"Browse Hotels" = "Browse Hotels";
+"Book Hotels" = "Book Hotels";
+"Look Up Reservations" = "Look Up Reservations";
+"Hotels" = "Hotels";
+"Rooms" = "Rooms";
+"Room: %i - %i beds - $%.2f per night." = "Room: %i - %i beds - $%.2f per night.";
+"Check In:" = "Check In:";
+"Book Dates" = "Book Dates";
+"What!?!" = "What!?!";
+"You can't book a stay for negative days!" = "You can't book a stay for negative days!";
+"Put your names in there!" = "Put your names in there!";
+"OK" = "OK";
+"Search Reservations" = "Search Reservations";
+"Room %@ - %@ beds - $%.2f per night. Check-in: %@ Check-out: %@" = "Room %@ - %@ beds - $%.2f per night. Check-in: %@ Check-out: %@";
+"Total: $%.2f" = "Total: $%.2f";
+"Confirm" = "Confirm";
+" First Name" = " First Name";
+" Last Name" = " Last Name";
+"%@, room %@ - $%.2f due." = "%@, room %@ - $%.2f due.";
+

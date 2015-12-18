@@ -7,6 +7,7 @@
 //
 
 #import "FinalBookingViewController.h"
+#import "Flurry.h"
 
 @interface FinalBookingViewController ()
 
@@ -34,7 +35,7 @@
 }
 
 - (void)setUpFinalBookingViewController {
-    [self.navigationItem setTitle:@"Confirm"];
+    [self.navigationItem setTitle:NSLocalizedString(@"Confirm", nil)];
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveButtonSelected:)];
     self.navigationItem.rightBarButtonItem = saveButton;
 }
@@ -46,7 +47,7 @@
     bookingLabel.translatesAutoresizingMaskIntoConstraints = NO;
     NSString *startDate = [NSDateFormatter localizedStringFromDate:self.startDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle];
     NSString *endDate = [NSDateFormatter localizedStringFromDate:self.endDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle];
-    bookingLabel.text = [NSString stringWithFormat:@"Room %@ - %@ beds - $%.2f per night. Check-in: %@ Check-out: %@", self.room.number, self.room.beds, self.room.rate.floatValue, startDate, endDate];
+    bookingLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Room %@ - %@ beds - $%.2f per night. Check-in: %@ Check-out: %@", nil), self.room.number, self.room.beds, self.room.rate.floatValue, startDate, endDate];
     bookingLabel.font = [UIFont fontWithName:@"Papyrus" size:20];
     
     int nights = floorf([self.endDate timeIntervalSinceDate:self.startDate] / 60 / 60 / 24);
@@ -56,7 +57,7 @@
     totalLabel.textAlignment = NSTextAlignmentCenter;
     totalLabel.numberOfLines = 0;
     totalLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    totalLabel.text = [NSString stringWithFormat:@"Total: $%.2f", total];
+    totalLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Total: $%.2f", nil), total];
     totalLabel.font = [UIFont fontWithName:@"Papyrus" size:30];
     
     UILabel *hotelName = [[UILabel alloc] init];
@@ -71,8 +72,9 @@
     NSLayoutConstraint *bookingLeading = [NSLayoutConstraint constraintWithItem:bookingLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1.0 constant:20.0];
     NSLayoutConstraint *bookingTrailing = [NSLayoutConstraint constraintWithItem:bookingLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:-20.0];
     
-    NSLayoutConstraint *totalCenterX = [NSLayoutConstraint constraintWithItem:totalLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
     NSLayoutConstraint *totalTop = [NSLayoutConstraint constraintWithItem:totalLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:bookingLabel attribute:NSLayoutAttributeBottom multiplier:1.0 constant:8.0];
+    NSLayoutConstraint *totalTrailing = [NSLayoutConstraint constraintWithItem:totalLabel attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:8.0];
+    NSLayoutConstraint *totalLeading = [NSLayoutConstraint constraintWithItem:totalLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1.0 constant:8.0];
     
     NSLayoutConstraint *hotelNameCenterX = [NSLayoutConstraint constraintWithItem:hotelName attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
     NSLayoutConstraint *hotelNameBottom = [NSLayoutConstraint constraintWithItem:hotelName attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:bookingLabel attribute:NSLayoutAttributeTop multiplier:1.0 constant:8.0];
@@ -86,8 +88,9 @@
     bookingLeading.active = YES;
     bookingTrailing.active = YES;
     
-    totalCenterX.active = YES;
     totalTop.active = YES;
+    totalTrailing.active = YES;
+    totalLeading.active = YES;
     
     hotelNameCenterX.active = YES;
     hotelNameBottom.active = YES;
@@ -108,8 +111,8 @@
     self.firstNameTextField.layer.cornerRadius = 5.0;
     self.lastNameTextField.layer.cornerRadius = 5.0;
     
-    self.firstNameTextField.placeholder = @" First Name";
-    self.lastNameTextField.placeholder = @" Last Name";
+    self.firstNameTextField.placeholder = NSLocalizedString(@" First Name", nil);
+    self.lastNameTextField.placeholder = NSLocalizedString(@" Last Name", nil);
     
     self.firstNameTextField.backgroundColor = [UIColor colorWithWhite:0.875 alpha:1.000];
     self.lastNameTextField.backgroundColor = [UIColor colorWithWhite:0.875 alpha:1.000];
@@ -138,16 +141,19 @@
 
 - (void)saveButtonSelected:(UIBarButtonItem *)sender {
     if (self.firstNameTextField.text.length > 0 && self.lastNameTextField.text.length > 0) {
-        [ReservationService createReservationWithStartDate:self.startDate endDate:self.endDate room:self.room firstName:self.firstNameTextField.text lastName:self.lastNameTextField.text completion:^(BOOL success) {
+        int nights = floorf([self.endDate timeIntervalSinceDate:self.startDate] / 60 / 60 / 24);
+        float total = self.room.rate.floatValue * nights;
+        [ReservationService createReservationWithStartDate:self.startDate endDate:self.endDate room:self.room firstName:self.firstNameTextField.text lastName:self.lastNameTextField.text totalCharge:total completion:^(BOOL success) {
             if (success) {
                 [self.navigationController popToRootViewControllerAnimated:YES];
             }
         }];
     } else {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"What!?!" message:@"Put your names in there!" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"What!?!", nil) message:NSLocalizedString(@"Put your names in there!", nil) preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:okAction];
         [self presentViewController:alertController animated:YES completion:nil];
+        [Flurry logEvent:@"User tried to reserve without entering name."];
     }
 }
 
