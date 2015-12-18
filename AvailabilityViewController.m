@@ -20,43 +20,11 @@
 
 - (NSArray *)datasource {
     if (!_datasource) {
-        NSFetchRequest *existingReservationsRequest = [[NSFetchRequest alloc] initWithEntityName:@"Reservation"];
-        existingReservationsRequest.predicate = [NSPredicate predicateWithFormat:@"startDate <= %@ AND endDate >= %@", self.endDate, self.startDate];
-        NSError *fetchError;
-        NSArray *existingReservations = [[NSManagedObjectContext hotelManagerContext] executeFetchRequest:existingReservationsRequest error:&fetchError];
-        
-        NSFetchRequest *allRoomsRequest = [[NSFetchRequest alloc] initWithEntityName:@"Room"];
-        NSError *allRoomFetchError;
-        NSArray *allRooms = [[NSManagedObjectContext hotelManagerContext] executeFetchRequest:allRoomsRequest error:&allRoomFetchError];
-        
-        NSMutableArray *unavailableRooms = [NSMutableArray new];
-        
-        for (Reservation *reservation in existingReservations) {
-            [unavailableRooms addObject:reservation.room];
-        }
-        
-        NSMutableArray *availableRooms = [[NSMutableArray alloc] initWithArray:allRooms];
-        
-        for (Room *room in unavailableRooms) {
-            [availableRooms removeObject:room];
-        }
-        
-        NSFetchRequest *hotelRequest = [[NSFetchRequest alloc] initWithEntityName:@"Hotel"];
-        NSError *hotelError;
-        NSArray *hotels = [[NSManagedObjectContext hotelManagerContext] executeFetchRequest:hotelRequest error:&hotelError];
-        self.hotels = hotels;
-        NSMutableArray *groupedAvailableRooms = [NSMutableArray new];
-        for (Hotel *hotel in self.hotels) {
-            NSMutableArray *tempArray = [NSMutableArray new];
-            for (Room *room in availableRooms) {
-                if ([room.hotel isEqual:hotel]) {
-                    [tempArray addObject:room];
-                }
-            }
-            [groupedAvailableRooms addObject:tempArray];
-        }
-        NSArray *finalArray = [NSArray arrayWithArray:groupedAvailableRooms];
-        return finalArray;
+        NSArray *resultsArray = [ReservationService getAvailableRoomsWithStartDate:self.startDate endDate:self.endDate];
+        NSMutableArray *mutableResults = [NSMutableArray arrayWithArray:resultsArray];
+        self.hotels = [mutableResults objectAtIndex:0];
+        [mutableResults removeObjectAtIndex:0];
+        return [NSArray arrayWithArray:mutableResults];
     }
     return _datasource;
 }

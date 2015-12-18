@@ -138,18 +138,11 @@
 
 - (void)saveButtonSelected:(UIBarButtonItem *)sender {
     if (self.firstNameTextField.text.length > 0 && self.lastNameTextField.text.length > 0) {
-        Reservation *reservation = [Reservation reservationWithStartDate:self.startDate endDate:self.endDate];
-        reservation.room = self.room;
-        reservation.guest = [Guest guestWithFirstName:self.firstNameTextField.text lastName:self.lastNameTextField.text];
-        self.room.reservation = reservation;
-        
-        NSError *saveError;
-        [[NSManagedObjectContext hotelManagerContext] save:&saveError];
-        if (saveError) {
-            NSLog(@"%@", saveError.userInfo);
-        } else {
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        }
+        [ReservationService createReservationWithStartDate:self.startDate endDate:self.endDate room:self.room firstName:self.firstNameTextField.text lastName:self.lastNameTextField.text completion:^(BOOL success) {
+            if (success) {
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+        }];
     } else {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"What!?!" message:@"Put your names in there!" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];

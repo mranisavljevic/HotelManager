@@ -7,12 +7,12 @@
 //
 
 #import "NSObject+NSManagedObjectContext.h"
+#import "CoreDataStack.h"
 
 @implementation NSObject (NSManagedObjectContext)
 
 + (NSManagedObjectContext*)hotelManagerContext {
-    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    return delegate.managedObjectContext;
+    return [CoreDataStack sharedStack].managedObjectContext;
 }
 
 @end

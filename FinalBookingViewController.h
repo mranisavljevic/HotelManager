@@ -12,6 +12,7 @@
 #import "Reservation.h"
 #import "Guest.h"
 #import "NSObject+NSManagedObjectContext.h"
+#import "ReservationService.h"
 
 @interface FinalBookingViewController : UIViewController
 
