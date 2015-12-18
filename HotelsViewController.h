@@ -9,6 +9,7 @@
 @import UIKit;
 #import "AppDelegate.h"
 #import "RoomsViewController.h"
+#import "NSObject+NSManagedObjectContext.h"
 
 @interface HotelsViewController : UIViewController
 

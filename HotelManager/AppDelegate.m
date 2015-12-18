@@ -55,17 +55,19 @@
         }
         hotels = rootObject[@"Hotels"];
         for (NSDictionary *hotel in hotels) {
-            Hotel *newHotel = [NSEntityDescription insertNewObjectForEntityForName:@"Hotel" inManagedObjectContext:self.managedObjectContext];
-            newHotel.name = hotel[@"name"];
-            newHotel.location = hotel[@"location"];
-            newHotel.stars = hotel[@"stars"];
+            Hotel *newHotel = [Hotel hotelWithName:hotel[@"name"] location:hotel[@"location"] stars:hotel[@"stars"]];
+//            Hotel *newHotel = [NSEntityDescription insertNewObjectForEntityForName:@"Hotel" inManagedObjectContext:self.managedObjectContext];
+//            newHotel.name = hotel[@"name"];
+//            newHotel.location = hotel[@"location"];
+//            newHotel.stars = hotel[@"stars"];
             
             rooms = hotel[@"rooms"];
             for (NSDictionary *room in rooms) {
-                Room *newRoom = [NSEntityDescription insertNewObjectForEntityForName:@"Room" inManagedObjectContext:self.managedObjectContext];
-                newRoom.beds = room[@"beds"];
-                newRoom.number = room[@"number"];
-                newRoom.rate = room[@"rate"];
+                Room *newRoom = [Room roomWithNumber:room[@"number"] beds:room[@"beds"] rate:room[@"rate"]];
+//                Room *newRoom = [NSEntityDescription insertNewObjectForEntityForName:@"Room" inManagedObjectContext:self.managedObjectContext];
+//                newRoom.beds = room[@"beds"];
+//                newRoom.number = room[@"number"];
+//                newRoom.rate = room[@"rate"];
                 newRoom.hotel = newHotel;
             }
         }

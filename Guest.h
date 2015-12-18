@@ -2,7 +2,7 @@
 //  Guest.h
 //  HotelManager
 //
-//  Created by Miles Ranisavljevic on 11/30/15.
+//  Created by Miles Ranisavljevic on 12/1/15.
 //  Copyright © 2015 creeperspeak. All rights reserved.
 //
 
@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Guest : NSManagedObject
 
-// Insert code here to declare functionality of your managed object subclass
++ (instancetype)guestWithFirstName:(NSString *)firstName lastName:(NSString *)lastName;
 
 @end
 
